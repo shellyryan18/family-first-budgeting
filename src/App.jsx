@@ -51,11 +51,12 @@ export default function App() {
             </a>
           </div>
 
-          {/* PROMO BOX */}
+          {/* PROMOTION */}
           <div style={{ marginTop: "25px", background: "#dff3ec", border: "2px solid #7fb8a4", padding: "18px", borderRadius: "16px", maxWidth: "500px", fontWeight: "700", color: "#23404a" }}>
             🎉 LIMITED TIME: First 5 clients get ONE MONTH of budgeting help FREE
           </div>
 
+          {/* TRUST LINE */}
           <p style={{ marginTop: "18px", fontSize: "14px", color: "#6c7a86" }}>
             ✔ No judgment • ✔ Simple plans • ✔ Built for real life
           </p>
@@ -111,6 +112,28 @@ export default function App() {
             <p style={{ marginTop: "20px" }}>
               <strong>Email:</strong> MSullivan.FamilyFirstBudgeting@outlook.com
             </p>
+
+            <p style={{ marginTop: "15px", fontWeight: "bold" }}>
+              Follow for tips and updates:
+            </p>
+
+            <a
+              href="https://www.facebook.com/FamilyFirstBudgeting/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                marginTop: "10px",
+                background: "#7fb8a4",
+                color: "#fff",
+                padding: "10px 16px",
+                borderRadius: "10px",
+                textDecoration: "none",
+                fontWeight: "bold",
+              }}
+            >
+              Follow on Facebook
+            </a>
 
           </div>
         </section>
