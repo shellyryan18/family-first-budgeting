@@ -108,7 +108,8 @@ export default function App() {
               color: "#23404a",
             }}
           >
-            Helping families feel less overwhelmed and more in control of their money.
+            Helping families feel less overwhelmed and more in control of their
+            money.
           </h2>
 
           <p
@@ -121,8 +122,8 @@ export default function App() {
             }}
           >
             Family First Budgeting helps individuals and families organize bills,
-            build realistic monthly budgets, and create a plan that actually works
-            in everyday life.
+            build realistic monthly budgets, and create a plan that actually
+            works in everyday life.
           </p>
 
           <div
@@ -144,9 +145,12 @@ export default function App() {
                 fontSize: "17px",
               }}
             >
-              ✔ Feeling overwhelmed by bills?<br />
-              ✔ Living paycheck to paycheck?<br />
-              ✔ Not sure where your money is going?<br />
+              ✔ Feeling overwhelmed by bills?
+              <br />
+              ✔ Living paycheck to paycheck?
+              <br />
+              ✔ Not sure where your money is going?
+              <br />
               ✔ Need a simple plan that feels realistic?
             </p>
 
@@ -159,8 +163,8 @@ export default function App() {
                 lineHeight: 1.7,
               }}
             >
-              I help you organize your finances in a way that feels clear, doable,
-              and built for your real life.
+              I help you organize your finances in a way that feels clear,
+              doable, and built for your real life.
             </p>
           </div>
 
@@ -202,6 +206,17 @@ export default function App() {
               Contact Me
             </a>
           </div>
+
+          <p
+            style={{
+              marginTop: "18px",
+              fontSize: "14px",
+              color: "#6c7a86",
+              fontWeight: "600",
+            }}
+          >
+            ✔ No judgment • ✔ Simple plans • ✔ Built for real life
+          </p>
         </section>
 
         <section
@@ -337,9 +352,9 @@ export default function App() {
             </h3>
 
             <p style={{ color: "#5f6b75", lineHeight: 1.8, fontSize: "16px" }}>
-              This business was built from real-life experience managing household
-              finances, medical bills, and the everyday pressure families face when
-              every dollar matters.
+              This business was built from real-life experience managing
+              household finances, medical bills, and the everyday pressure
+              families face when every dollar matters.
             </p>
 
             <p style={{ color: "#5f6b75", lineHeight: 1.8, fontSize: "16px" }}>
@@ -420,6 +435,19 @@ export default function App() {
                 type="email"
                 name="email"
                 placeholder="Your Email"
+                required
+                style={{
+                  padding: "13px",
+                  borderRadius: "10px",
+                  border: "none",
+                  fontSize: "16px",
+                }}
+              />
+
+              <input
+                type="text"
+                name="biggest_struggle"
+                placeholder="What is your biggest struggle with money right now?"
                 required
                 style={{
                   padding: "13px",
