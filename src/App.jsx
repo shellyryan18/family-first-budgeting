@@ -41,7 +41,7 @@ export default function App() {
           </div>
 
           <a
-            href="mailto:MSullivan.FamilyFirstBudgeting@outlook.com"
+            href="#contact"
             style={{
               background: "#2f2a24",
               color: "#fff",
@@ -121,7 +121,7 @@ export default function App() {
             </a>
 
             <a
-              href="mailto:MSullivan.FamilyFirstBudgeting@outlook.com"
+              href="#contact"
               style={{
                 border: "1px solid #bbb",
                 background: "#fff",
@@ -252,28 +252,78 @@ export default function App() {
             </h3>
 
             <p style={{ color: "#e6ddd2", lineHeight: 1.7 }}>
-              Message me to ask questions, learn more, or set up a budget
-              coaching session.
+              Fill out the form below and I’ll get back to you.
             </p>
 
-            <p>
-              <strong>Business:</strong> Family First Budgeting
-            </p>
-            <p>
-              <strong>Slogan:</strong> Fighting the economy, one family at a
-              time
-            </p>
-            <p>
-              <strong>Email:</strong>{" "}
-              <a
-                href="mailto:MSullivan.FamilyFirstBudgeting@outlook.com"
-                style={{ color: "#fff" }}
+            <form
+              action="https://formspree.io/f/myklprdd"
+              method="POST"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+                marginTop: "20px",
+              }}
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                style={{
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "none",
+                  fontSize: "16px",
+                }}
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                style={{
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "none",
+                  fontSize: "16px",
+                }}
+              />
+
+              <textarea
+                name="message"
+                placeholder="Tell me what you need help with"
+                required
+                rows="5"
+                style={{
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "none",
+                  fontSize: "16px",
+                  resize: "vertical",
+                }}
+              />
+
+              <button
+                type="submit"
+                style={{
+                  background: "#fff",
+                  color: "#2f2a24",
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "none",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
               >
-                MSullivan.FamilyFirstBudgeting@outlook.com
-              </a>
-            </p>
-            <p>
-              <strong>Facebook:</strong> Coming soon
+                Send Message
+              </button>
+            </form>
+
+            <p style={{ marginTop: "20px" }}>
+              <strong>Email:</strong> MSullivan.FamilyFirstBudgeting@outlook.com
             </p>
 
             <p
