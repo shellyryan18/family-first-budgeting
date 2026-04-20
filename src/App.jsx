@@ -51,12 +51,10 @@ export default function App() {
             </a>
           </div>
 
-          {/* PROMOTION */}
           <div style={{ marginTop: "25px", background: "#dff3ec", border: "2px solid #7fb8a4", padding: "18px", borderRadius: "16px", maxWidth: "500px", fontWeight: "700", color: "#23404a" }}>
             🎉 LIMITED TIME: First 5 clients get ONE MONTH of budgeting help FREE
           </div>
 
-          {/* TRUST LINE */}
           <p style={{ marginTop: "18px", fontSize: "14px", color: "#6c7a86" }}>
             ✔ No judgment • ✔ Simple plans • ✔ Built for real life
           </p>
@@ -139,6 +137,23 @@ export default function App() {
         </section>
 
       </main>
+
+      {/* DISCLAIMER FOOTER */}
+      <footer style={{
+        marginTop: "40px",
+        padding: "20px",
+        background: "#f4f9fb",
+        textAlign: "center",
+        fontSize: "12px",
+        color: "#6c7a86",
+        borderTop: "1px solid #d6e6ef"
+      }}>
+        <p>
+          Disclaimer: Family First Budgeting provides budgeting support and general financial organization guidance only.
+          This service does not constitute financial, legal, tax, or investment advice.
+        </p>
+      </footer>
+
     </div>
   );
 }
