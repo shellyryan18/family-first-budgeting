@@ -1,23 +1,28 @@
+/* ================= GLOBAL RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ================= BODY ================= */
 body {
   font-family: Arial, sans-serif;
   background: #eef6fb;
   color: #1f3c46;
 }
 
+/* ================= LINKS ================= */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-input,
+/* ================= FORM FIELDS ================= */
+input:not([type="checkbox"]),
 textarea,
 select {
+  width: 100%;
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #cfd8dc;
@@ -26,27 +31,29 @@ select {
   color: #1f3c46;
 }
 
-/* ONLY text inputs full width */
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="date"],
-textarea,
-select {
-  width: 100%;
-}
-
-/* FIX CHECKBOXES */
+/* ================= CHECKBOX FIX ================= */
 input[type="checkbox"] {
-  width: auto !important;
-  display: inline-block;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  padding: 0 !important;
+  margin: 2px 0 0 0 !important;
+  display: block !important;
+  flex: 0 0 18px !important;
+  accent-color: #7fb8a4;
+  border: 1px solid #cfd8dc;
+  border-radius: 4px;
+  background: #ffffff;
 }
 
+/* ================= PLACEHOLDERS ================= */
 input::placeholder,
 textarea::placeholder {
   color: #7a8691;
 }
 
+/* ================= AUTOFILL FIX ================= */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -61,8 +68,22 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+/* ================= BUTTONS ================= */
 button {
   cursor: pointer;
   border: none;
 }
 
+/* ================= SCROLLBAR ================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef6fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cfd8dc;
+  border-radius: 10px;
+}
