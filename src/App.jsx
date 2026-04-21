@@ -3,7 +3,7 @@ export default function App() {
     <div
       style={{
         fontFamily: "Arial, sans-serif",
-        background: "linear-gradient(180deg, #eef6fb 0%, #f7fbfd 100%)",
+        background: "linear-gradient(180deg, #eef6fb 0%, #f8fcfd 100%)",
         color: "#2f3e46",
         minHeight: "100vh",
       }}
@@ -86,157 +86,231 @@ export default function App() {
             width: "90%",
             maxWidth: "1120px",
             margin: "0 auto",
-            padding: "90px 0 70px",
+            padding: "86px 0 76px",
           }}
         >
           <div
             style={{
-              maxWidth: "760px",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "28px",
+              alignItems: "center",
             }}
           >
-            <p
-              style={{
-                textTransform: "uppercase",
-                letterSpacing: "2px",
-                color: "#6c7a86",
-                fontSize: "13px",
-                fontWeight: "700",
-                marginBottom: "14px",
-              }}
-            >
-              Simple budgeting support for real life
-            </p>
+            <div>
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  background: "#ffffff",
+                  border: "1px solid #d6e6ef",
+                  borderRadius: "999px",
+                  padding: "10px 16px",
+                  boxShadow: "0 8px 18px rgba(31,60,70,0.05)",
+                  marginBottom: "18px",
+                }}
+              >
+                <span
+                  style={{
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "999px",
+                    background: "#7fb8a4",
+                    display: "inline-block",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: "700",
+                    letterSpacing: "1px",
+                    textTransform: "uppercase",
+                    color: "#5f6b75",
+                  }}
+                >
+                  Budgeting support for real families
+                </span>
+              </div>
 
-            <h2
-              style={{
-                fontSize: "48px",
-                lineHeight: 1.1,
-                margin: "0 0 18px",
-                color: "#1f3c46",
-              }}
-            >
-              Helping families feel less overwhelmed and more in control of
-              their money.
-            </h2>
+              <h2
+                style={{
+                  fontSize: "50px",
+                  lineHeight: 1.08,
+                  margin: "0 0 18px",
+                  color: "#1f3c46",
+                  maxWidth: "720px",
+                }}
+              >
+                Helping families feel less overwhelmed and more in control of
+                their money.
+              </h2>
 
-            <p
-              style={{
-                maxWidth: "680px",
-                fontSize: "19px",
-                lineHeight: 1.75,
-                color: "#5f6b75",
-                margin: 0,
-              }}
-            >
-              I help you organize bills, build a realistic budget, and create a
-              plan that actually works for your real life.
-            </p>
+              <p
+                style={{
+                  maxWidth: "680px",
+                  fontSize: "19px",
+                  lineHeight: 1.75,
+                  color: "#5f6b75",
+                  margin: 0,
+                }}
+              >
+                I help you organize bills, build a realistic budget, and create a
+                plan that actually works for your real life.
+              </p>
+
+              <div
+                style={{
+                  marginTop: "28px",
+                  display: "flex",
+                  gap: "14px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <a
+                  href="#services"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #7fb8a4 0%, #6fae99 100%)",
+                    color: "#fff",
+                    padding: "13px 20px",
+                    borderRadius: "14px",
+                    textDecoration: "none",
+                    fontWeight: "700",
+                    boxShadow: "0 8px 20px rgba(127,184,164,0.26)",
+                  }}
+                >
+                  View Services
+                </a>
+
+                <a
+                  href="#contact"
+                  style={{
+                    border: "1px solid #cfe3ed",
+                    background: "#ffffff",
+                    color: "#2f3e46",
+                    padding: "13px 20px",
+                    borderRadius: "14px",
+                    textDecoration: "none",
+                    fontWeight: "700",
+                    boxShadow: "0 6px 18px rgba(0,0,0,0.04)",
+                  }}
+                >
+                  Contact Me
+                </a>
+              </div>
+
+              <div
+                style={{
+                  marginTop: "24px",
+                  background:
+                    "linear-gradient(135deg, #dff3ec 0%, #edf9f4 100%)",
+                  border: "1px solid #9fd0bf",
+                  padding: "18px 20px",
+                  borderRadius: "18px",
+                  maxWidth: "560px",
+                  fontWeight: "800",
+                  color: "#23404a",
+                  boxShadow: "0 10px 22px rgba(127,184,164,0.14)",
+                }}
+              >
+                🎉 Limited Time: First 5 clients get one month of budgeting help
+                free
+              </div>
+
+              <p
+                style={{
+                  marginTop: "16px",
+                  fontSize: "14px",
+                  color: "#6c7a86",
+                  fontWeight: "600",
+                }}
+              >
+                ✔ No judgment • ✔ Simple plans • ✔ Built for real life
+              </p>
+            </div>
+
+            <div>
+              <div
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(244,251,248,0.95) 100%)",
+                  border: "1px solid #d6e6ef",
+                  borderRadius: "28px",
+                  padding: "28px",
+                  boxShadow: "0 18px 36px rgba(31,60,70,0.08)",
+                }}
+              >
+                <div
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid #dfeaf0",
+                    borderRadius: "22px",
+                    padding: "22px",
+                    boxShadow: "0 10px 24px rgba(31,60,70,0.05)",
+                  }}
+                >
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: "13px",
+                      fontWeight: "700",
+                      letterSpacing: "1px",
+                      textTransform: "uppercase",
+                      color: "#6c7a86",
+                    }}
+                  >
+                    What this looks like
+                  </p>
+
+                  <h3
+                    style={{
+                      marginTop: "14px",
+                      marginBottom: "14px",
+                      fontSize: "28px",
+                      color: "#1f3c46",
+                    }}
+                  >
+                    A simple plan that feels doable
+                  </h3>
+
+                  <ul
+                    style={{
+                      color: "#5f6b75",
+                      lineHeight: 1.9,
+                      paddingLeft: "20px",
+                      marginBottom: 0,
+                      fontSize: "16px",
+                    }}
+                  >
+                    <li>Organize monthly income and bills</li>
+                    <li>See where your money is actually going</li>
+                    <li>Reduce financial overwhelm</li>
+                    <li>Build a realistic budget for everyday life</li>
+                  </ul>
+                </div>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                    gap: "12px",
+                    marginTop: "18px",
+                  }}
+                >
+                  <MiniStat label="Clear" />
+                  <MiniStat label="Simple" />
+                  <MiniStat label="Supportive" />
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div
-            style={{
-              marginTop: "28px",
-              background: "#ffffff",
-              border: "1px solid #d6e6ef",
-              borderRadius: "22px",
-              padding: "26px",
-              maxWidth: "720px",
-              boxShadow: "0 10px 28px rgba(31,60,70,0.06)",
-            }}
-          >
-            <p
-              style={{
-                fontWeight: "700",
-                margin: 0,
-                lineHeight: 1.9,
-                fontSize: "17px",
-                color: "#2f3e46",
-              }}
-            >
-              ✔ Feeling overwhelmed with bills?
-              <br />
-              ✔ Living paycheck to paycheck?
-              <br />
-              ✔ Not sure where your money is going?
-              <br />
-              <br />
-              I help you create a simple plan that actually works.
-            </p>
-          </div>
-
-          <div
-            style={{
-              marginTop: "28px",
-              display: "flex",
-              gap: "14px",
-              flexWrap: "wrap",
-            }}
-          >
-            <a
-              href="#services"
-              style={{
-                background: "linear-gradient(135deg, #7fb8a4 0%, #6fae99 100%)",
-                color: "#fff",
-                padding: "13px 20px",
-                borderRadius: "14px",
-                textDecoration: "none",
-                fontWeight: "700",
-                boxShadow: "0 8px 20px rgba(127,184,164,0.26)",
-              }}
-            >
-              View Services
-            </a>
-
-            <a
-              href="#contact"
-              style={{
-                border: "1px solid #cfe3ed",
-                background: "#ffffff",
-                color: "#2f3e46",
-                padding: "13px 20px",
-                borderRadius: "14px",
-                textDecoration: "none",
-                fontWeight: "700",
-                boxShadow: "0 6px 18px rgba(0,0,0,0.04)",
-              }}
-            >
-              Contact Me
-            </a>
-          </div>
-
-          <div
-            style={{
-              marginTop: "24px",
-              background: "linear-gradient(135deg, #dff3ec 0%, #edf9f4 100%)",
-              border: "1px solid #9fd0bf",
-              padding: "18px 20px",
-              borderRadius: "18px",
-              maxWidth: "560px",
-              fontWeight: "800",
-              color: "#23404a",
-              boxShadow: "0 10px 22px rgba(127,184,164,0.14)",
-            }}
-          >
-            🎉 Limited Time: First 5 clients get one month of budgeting help
-            free
-          </div>
-
-          <p
-            style={{
-              marginTop: "16px",
-              fontSize: "14px",
-              color: "#6c7a86",
-              fontWeight: "600",
-            }}
-          >
-            ✔ No judgment • ✔ Simple plans • ✔ Built for real life
-          </p>
         </section>
 
         <section
           id="services"
           style={{
-            padding: "30px 0 80px",
+            padding: "20px 0 80px",
           }}
         >
           <div
@@ -671,6 +745,31 @@ function Card({ title, items }) {
           <li key={item}>{item}</li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+function MiniStat({ label }) {
+  return (
+    <div
+      style={{
+        background: "#ffffff",
+        border: "1px solid #dfeaf0",
+        borderRadius: "16px",
+        padding: "14px 10px",
+        textAlign: "center",
+        boxShadow: "0 8px 18px rgba(31,60,70,0.04)",
+      }}
+    >
+      <span
+        style={{
+          fontSize: "14px",
+          fontWeight: "700",
+          color: "#23404a",
+        }}
+      >
+        {label}
+      </span>
     </div>
   );
 }
