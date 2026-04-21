@@ -398,90 +398,79 @@ export default function App() {
           </div>
         </section>
 
-        <section
-          id="privacy"
-          style={{
-            width: "90%",
-            maxWidth: "1100px",
-            margin: "0 auto",
-            padding: "20px 0 70px",
-          }}
-        >
-          <div
-            style={{
-              background: "#ffffff",
-              border: "1px solid #d6e6ef",
-              borderRadius: "24px",
-              padding: "30px",
-            }}
-          >
-            <h3 style={{ color: "#23404a", marginTop: 0 }}>Privacy Policy</h3>
-            <p style={{ color: "#5f6b75", lineHeight: 1.7 }}>
-              <strong>Effective Date:</strong> April 2026
-            </p>
+        <<section
+  id="privacy"
+  style={{
+    width: "90%",
+    maxWidth: "800px",
+    margin: "0 auto",
+    padding: "40px 0",
+  }}
+>
+  <div
+    style={{
+      background: "#ffffff",
+      border: "1px solid #d6e6ef",
+      borderRadius: "16px",
+      padding: "25px",
+    }}
+  >
+    <h3 style={{ textAlign: "center", marginBottom: "10px" }}>
+      Privacy Policy
+    </h3>
 
-            <p style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              Family First Budgeting (&quot;we&quot;, &quot;our&quot;, or
-              &quot;us&quot;) values your privacy. This Privacy Policy explains
-              how we collect, use, and protect your information when you use our
-              website.
-            </p>
+    <p style={{ textAlign: "center", fontSize: "14px", color: "#6c7a86" }}>
+      Effective Date: April 2026
+    </p>
 
-            <h4 style={{ color: "#23404a" }}>Information We Collect</h4>
-            <p style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              We may collect personal information that you voluntarily provide,
-              including:
-            </p>
-            <ul style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              <li>Name</li>
-              <li>Email address</li>
-              <li>Any information you submit through our contact form</li>
-            </ul>
+    <p>
+      Family First Budgeting ("we", "our", or "us") values your privacy. This
+      Privacy Policy explains how we collect, use, and protect your information
+      when you use our website.
+    </p>
 
-            <h4 style={{ color: "#23404a" }}>How We Use Your Information</h4>
-            <p style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              We use your information to:
-            </p>
-            <ul style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              <li>Respond to your inquiries</li>
-              <li>Provide budgeting services</li>
-              <li>Communicate with you regarding your request</li>
-            </ul>
+    <h4>Information We Collect</h4>
+    <ul>
+      <li>Name</li>
+      <li>Email address</li>
+      <li>Information submitted through our contact form</li>
+    </ul>
 
-            <p style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              We do not sell, rent, or share your personal information with
-              third parties for marketing purposes.
-            </p>
+    <h4>How We Use Your Information</h4>
+    <ul>
+      <li>Respond to your inquiries</li>
+      <li>Provide budgeting services</li>
+      <li>Communicate with you</li>
+    </ul>
 
-            <h4 style={{ color: "#23404a" }}>Third-Party Services</h4>
-            <p style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              We may use third-party services such as Formspree to collect and
-              process form submissions. These services may have their own
-              privacy policies.
-            </p>
+    <p>
+      We do not sell, rent, or share your personal information with third
+      parties for marketing purposes.
+    </p>
 
-            <h4 style={{ color: "#23404a" }}>Data Security</h4>
-            <p style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              We take reasonable steps to protect your information, but no
-              method of transmission over the internet is 100% secure.
-            </p>
+    <h4>Third-Party Services</h4>
+    <p>
+      We may use services like Formspree to process submissions. These services
+      have their own privacy policies.
+    </p>
 
-            <h4 style={{ color: "#23404a" }}>Your Rights</h4>
-            <p style={{ color: "#5f6b75", lineHeight: 1.8 }}>
-              You may request that we delete your personal information at any
-              time by contacting us.
-            </p>
+    <h4>Data Security</h4>
+    <p>
+      We take reasonable steps to protect your information, but no method is 100%
+      secure.
+    </p>
 
-            <h4 style={{ color: "#23404a" }}>Contact</h4>
-            <p style={{ color: "#5f6b75", lineHeight: 1.8, marginBottom: 0 }}>
-              If you have any questions about this Privacy Policy, you can
-              contact us at:
-              <br />
-              <br />
-              <strong>MSullivan.FamilyFirstBudgeting@outlook.com</strong>
-            </p>
-          </div>
-        </section>
+    <h4>Your Rights</h4>
+    <p>
+      You may request deletion of your personal information at any time.
+    </p>
+
+    <h4>Contact</h4>
+    <p>
+      MSullivan.FamilyFirstBudgeting@outlook.com
+    </p>
+  </div>
+</section>
       </main>
 
       <footer
