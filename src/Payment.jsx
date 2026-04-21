@@ -1,92 +1,65 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function Payment() {
-  useEffect(() => {
-    const scriptId = "paypal-hosted-buttons-sdk";
-
-    const renderButtons = () => {
-      if (!window.paypal || !window.paypal.HostedButtons) return;
-
-      const monthlyContainer = document.getElementById("paypal-monthly");
-      const threeMonthContainer = document.getElementById("paypal-3month");
-
-      if (monthlyContainer && !monthlyContainer.hasChildNodes()) {
-        window.paypal
-          .HostedButtons({
-            hostedButtonId: "MUJ2HRPYMBQ7Q",
-          })
-          .render("#paypal-monthly");
-      }
-
-      if (threeMonthContainer && !threeMonthContainer.hasChildNodes()) {
-        window.paypal
-          .HostedButtons({
-            hostedButtonId: "RXQX8NU5GSLM4",
-          })
-          .render("#paypal-3month");
-      }
-    };
-
-    const existingScript = document.getElementById(scriptId);
-
-    if (existingScript) {
-      renderButtons();
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.id = scriptId;
-    script.src =
-      "https://www.paypal.com/sdk/js?client-id=BAAf1lH5KtGCcavkfw0oCuJI3ZiXLJi5UvvcP4qr9HI53qh9NiR-6Sdb1DIOz0SsVziW-1d2tdePVrwmdE&components=hosted-buttons&enable-funding=venmo&currency=USD";
-    script.async = true;
-    script.onload = renderButtons;
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <div style={page}>
-      <h1 style={header}>Choose Your Plan</h1>
+      <div style={container}>
+        <h1 style={header}>Choose Your Plan</h1>
 
-      <p style={subheader}>
-        You're one step away from getting your finances under control.
-      </p>
+        <p style={subheader}>
+          You're one step away from getting your finances under control.
+        </p>
 
-      <p style={urgency}>⚡ Limited availability — secure your spot today</p>
+        <p style={urgency}>⚡ Limited availability — secure your spot today</p>
 
-      <div style={grid}>
-        <div style={card}>
-          <h2 style={planTitle}>Monthly Plan</h2>
-          <p style={price}>$50</p>
+        <div style={grid}>
+          <div style={card}>
+            <h2 style={planTitle}>Monthly Plan</h2>
+            <p style={price}>$50</p>
 
-          <ul style={list}>
-            <li>Full monthly budget setup</li>
-            <li>Bill organization</li>
-            <li>Paycheck planning</li>
-            <li>Custom plan for your situation</li>
-          </ul>
+            <ul style={list}>
+              <li>Full monthly budget setup</li>
+              <li>Bill organization</li>
+              <li>Paycheck planning</li>
+              <li>Custom plan for your situation</li>
+            </ul>
 
-          <div style={paypalWrapper}>
-            <div id="paypal-monthly" style={paypalContainer} />
+            <a
+              href="https://www.paypal.com/ncp/payment/MUJ2HRPYMBQ7Q"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={button}
+            >
+              Pay Monthly Plan
+            </a>
+          </div>
+
+          <div style={featuredCard}>
+            <p style={badge}>Best Value</p>
+
+            <h2 style={planTitle}>3-Month Plan</h2>
+            <p style={saveText}>Save 10%</p>
+            <p style={price}>$135</p>
+
+            <ul style={list}>
+              <li>Everything in monthly plan</li>
+              <li>3 months of support</li>
+              <li>Priority adjustments</li>
+            </ul>
+
+            <a
+              href="https://www.paypal.com/ncp/payment/RXQX8NU5GSLM4"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={button}
+            >
+              Pay 3-Month Plan
+            </a>
           </div>
         </div>
 
-        <div style={card}>
-          <h2 style={planTitle}>3-Month Plan (Save 10%)</h2>
-          <p style={price}>$135</p>
-
-          <ul style={list}>
-            <li>Everything in monthly plan</li>
-            <li>3 months of support</li>
-            <li>Priority adjustments</li>
-          </ul>
-
-          <div style={paypalWrapper}>
-            <div id="paypal-3month" style={paypalContainer} />
-          </div>
-        </div>
+        <p style={secure}>🔒 Secure checkout powered by PayPal</p>
       </div>
-
-      <p style={secure}>🔒 Secure checkout powered by PayPal</p>
     </div>
   );
 }
@@ -96,11 +69,16 @@ const page = {
   background: "#eef6fb",
   minHeight: "100vh",
   padding: "40px 20px",
+};
+
+const container = {
+  maxWidth: "960px",
+  margin: "0 auto",
   textAlign: "center",
 };
 
 const header = {
-  fontSize: "36px",
+  fontSize: "42px",
   color: "#1f3c46",
   marginBottom: "10px",
 };
@@ -108,66 +86,96 @@ const header = {
 const subheader = {
   color: "#6c7a86",
   marginBottom: "10px",
+  fontSize: "18px",
 };
 
 const urgency = {
   color: "#d9534f",
-  fontWeight: "600",
-  marginBottom: "25px",
+  fontWeight: "700",
+  marginBottom: "28px",
 };
 
 const grid = {
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "center",
-  gap: "20px",
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+  gap: "24px",
+  alignItems: "stretch",
 };
 
 const card = {
   background: "#f9fcfd",
   border: "1px solid #d6e6ef",
-  borderRadius: "16px",
-  padding: "25px",
-  width: "320px",
+  borderRadius: "18px",
+  padding: "28px",
   boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
+  textAlign: "left",
+};
+
+const featuredCard = {
+  ...card,
+  border: "2px solid #7fb8a4",
+  position: "relative",
+};
+
+const badge = {
+  display: "inline-block",
+  background: "#e8f6f1",
+  color: "#2e6f5e",
+  padding: "6px 10px",
+  borderRadius: "999px",
+  fontSize: "12px",
+  fontWeight: "700",
+  marginBottom: "12px",
 };
 
 const planTitle = {
   color: "#1f3c46",
-  fontSize: "26px",
+  fontSize: "32px",
   fontWeight: "800",
-  marginBottom: "5px",
+  marginTop: 0,
+  marginBottom: "8px",
+  textAlign: "center",
+};
+
+const saveText = {
+  textAlign: "center",
+  color: "#2e6f5e",
+  fontWeight: "700",
+  marginBottom: "4px",
 };
 
 const price = {
   color: "#7fb8a4",
-  fontSize: "28px",
-  fontWeight: "700",
-  marginBottom: "15px",
+  fontSize: "34px",
+  fontWeight: "800",
+  textAlign: "center",
+  marginTop: 0,
+  marginBottom: "18px",
 };
 
 const list = {
-  textAlign: "left",
   color: "#5f6b75",
-  marginBottom: "20px",
-  lineHeight: "1.6",
+  lineHeight: "1.8",
+  marginBottom: "24px",
+  paddingLeft: "22px",
 };
 
-const paypalWrapper = {
-  background: "#ffffff",
-  padding: "16px",
-  borderRadius: "12px",
+const button = {
+  display: "block",
   width: "100%",
-  overflow: "hidden",
-};
-
-const paypalContainer = {
-  width: "100%",
-  minWidth: "100%",
+  textAlign: "center",
+  background: "linear-gradient(135deg, #7fb8a4 0%, #6fae99 100%)",
+  color: "#fff",
+  padding: "14px 18px",
+  borderRadius: "14px",
+  textDecoration: "none",
+  fontWeight: "700",
+  boxShadow: "0 8px 20px rgba(127,184,164,0.26)",
 };
 
 const secure = {
-  marginTop: "30px",
+  marginTop: "28px",
   color: "#6c7a86",
   fontSize: "13px",
+  textAlign: "center",
 };

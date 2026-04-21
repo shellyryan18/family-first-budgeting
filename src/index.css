@@ -51,28 +51,3 @@ button {
   border: none;
 }
 
-/* Do NOT hide all PayPal selects anymore */
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #eef6fb;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cfd8dc;
-  border-radius: 10px;
-}
-#paypal-monthly,
-#paypal-3month {
-  width: 100% !important;
-  min-width: 100% !important;
-}
-
-#paypal-monthly > div,
-#paypal-3month > div {
-  width: 100% !important;
-  min-width: 100% !important;
-}
