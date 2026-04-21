@@ -500,6 +500,7 @@ const inputStyle = {
   width: "100%",
   boxSizing: "border-box",
   background: "#ffffff",
+  color: "#1f3c46",
 };
 
 const billLabel = {
