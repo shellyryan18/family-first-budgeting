@@ -1,12 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { Analytics } from '@vercel/analytics/react'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import IntakeForm from "./IntakeForm.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-    <Analytics />
-  </React.StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/intake" element={<IntakeForm />} />
+    </Routes>
+  </BrowserRouter>
+);
