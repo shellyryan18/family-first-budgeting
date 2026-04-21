@@ -25,7 +25,6 @@ export default function App() {
 
         {/* BUTTON */}
         <a
-          <a
           href="/#/intake"
           style={{
             background: "linear-gradient(135deg, #7fb8a4 0%, #6fae99 100%)",
