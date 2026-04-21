@@ -2,19 +2,45 @@ import React, { useEffect } from "react";
 
 export default function Payment() {
   useEffect(() => {
-    if (window.paypal) {
-      window.paypal
-        .HostedButtons({
-          hostedButtonId: "MUJ2HRPYMBQ7Q",
-        })
-        .render("#paypal-monthly");
+    const scriptId = "paypal-hosted-buttons-sdk";
 
-      window.paypal
-        .HostedButtons({
-          hostedButtonId: "RXQX8NU5GSLM4",
-        })
-        .render("#paypal-3month");
+    const renderButtons = () => {
+      if (!window.paypal || !window.paypal.HostedButtons) return;
+
+      const monthlyContainer = document.getElementById("paypal-monthly");
+      const threeMonthContainer = document.getElementById("paypal-3month");
+
+      if (monthlyContainer && !monthlyContainer.hasChildNodes()) {
+        window.paypal
+          .HostedButtons({
+            hostedButtonId: "MUJ2HRPYMBQ7Q",
+          })
+          .render("#paypal-monthly");
+      }
+
+      if (threeMonthContainer && !threeMonthContainer.hasChildNodes()) {
+        window.paypal
+          .HostedButtons({
+            hostedButtonId: "RXQX8NU5GSLM4",
+          })
+          .render("#paypal-3month");
+      }
+    };
+
+    const existingScript = document.getElementById(scriptId);
+
+    if (existingScript) {
+      renderButtons();
+      return;
     }
+
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.src =
+      "https://www.paypal.com/sdk/js?client-id=BAAf1lH5KtGCcavkfw0oCuJI3ZiXLJi5UvvcP4qr9HI53qh9NiR-6Sdb1DIOz0SsVziW-1d2tdePVrwmdE&components=hosted-buttons&enable-funding=venmo&currency=USD";
+    script.async = true;
+    script.onload = renderButtons;
+    document.body.appendChild(script);
   }, []);
 
   return (
@@ -28,7 +54,6 @@ export default function Payment() {
       <p style={urgency}>⚡ Limited availability — secure your spot today</p>
 
       <div style={grid}>
-        {/* MONTHLY */}
         <div style={card}>
           <h2 style={planTitle}>Monthly Plan</h2>
           <p style={price}>$50</p>
@@ -41,11 +66,10 @@ export default function Payment() {
           </ul>
 
           <div style={paypalWrapper}>
-            <div id="paypal-monthly"></div>
+            <div id="paypal-monthly" />
           </div>
         </div>
 
-        {/* 3 MONTH */}
         <div style={card}>
           <h2 style={planTitle}>3-Month Plan (Save 10%)</h2>
           <p style={price}>$135</p>
@@ -57,7 +81,7 @@ export default function Payment() {
           </ul>
 
           <div style={paypalWrapper}>
-            <div id="paypal-3month"></div>
+            <div id="paypal-3month" />
           </div>
         </div>
       </div>
@@ -66,8 +90,6 @@ export default function Payment() {
     </div>
   );
 }
-
-/* ================= STYLES ================= */
 
 const page = {
   fontFamily: "Arial, sans-serif",
@@ -135,6 +157,10 @@ const paypalWrapper = {
   background: "#ffffff",
   padding: "12px",
   borderRadius: "12px",
+  minHeight: "170px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 };
 
 const secure = {

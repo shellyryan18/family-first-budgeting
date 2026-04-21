@@ -1,24 +1,20 @@
-/* ================= GLOBAL RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ================= BODY ================= */
 body {
   font-family: Arial, sans-serif;
   background: #eef6fb;
   color: #1f3c46;
 }
 
-/* ================= LINKS ================= */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* ================= INPUTS ================= */
 input,
 textarea,
 select {
@@ -31,13 +27,11 @@ select {
   color: #1f3c46;
 }
 
-/* ================= PLACEHOLDERS ================= */
 input::placeholder,
 textarea::placeholder {
   color: #7a8691;
 }
 
-/* ================= AUTOFILL FIX ================= */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -52,30 +46,13 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* ================= BUTTONS ================= */
 button {
   cursor: pointer;
   border: none;
 }
 
-/* ================= PAYPAL FIXES ================= */
+/* Do NOT hide all PayPal selects anymore */
 
-/* Hide quantity dropdown ONLY inside PayPal buttons */
-#paypal-monthly select,
-#paypal-3month select {
-  display: none !important;
-}
-
-/* Clean dropdown styling (if anything slips through) */
-select {
-  background-color: #ffffff !important;
-  color: #1f3c46 !important;
-  border: 1px solid #d6e6ef !important;
-  border-radius: 8px !important;
-  padding: 6px !important;
-}
-
-/* ================= SCROLLBAR (OPTIONAL CLEAN LOOK) ================= */
 ::-webkit-scrollbar {
   width: 8px;
 }
