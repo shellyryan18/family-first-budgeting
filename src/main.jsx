@@ -4,6 +4,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import IntakeForm from "./IntakeForm.jsx";
 import "./index.css";
+import Payment from "./Payment.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/intake" element={<IntakeForm />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>
