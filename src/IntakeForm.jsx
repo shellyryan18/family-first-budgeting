@@ -39,8 +39,22 @@ export default function IntakeForm() {
             marginBottom: "16px",
           }}
         >
-          Client Intake Form
+          Client Commitment Form
         </h2>
+
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "14px",
+            color: "#5f6b75",
+            marginBottom: "10px",
+            lineHeight: 1.7,
+          }}
+        >
+          By completing this form, you are taking the first step to begin
+          services. Payment details and next steps will be provided after
+          submission.
+        </p>
 
         <div
           style={{
@@ -54,8 +68,12 @@ export default function IntakeForm() {
           }}
         >
           <p style={{ marginTop: 0 }}>
-            This form helps me get a clear picture of your monthly bills so I
-            can create a plan that actually works for your day-to-day life.
+            This form is the first step in us working together.
+          </p>
+
+          <p>
+            It helps me get a clear picture of your monthly bills so I can
+            create a plan that actually works for your day-to-day life.
           </p>
 
           <p>
@@ -72,7 +90,7 @@ export default function IntakeForm() {
           </p>
 
           <p>
-            The more accurate and honest you are, the more helpful I can be.
+            The more accurate and honest you are, the better I can help you.
             There is no judgment here — just support, and everything you share
             is completely confidential.
           </p>
@@ -95,7 +113,7 @@ export default function IntakeForm() {
           <input
             type="hidden"
             name="_subject"
-            value="New Detailed Client Intake Form Submission"
+            value="New Client Commitment Form Submission"
           />
 
           <Section title="Basic Information">
@@ -420,8 +438,50 @@ export default function IntakeForm() {
             />
           </Section>
 
+          <div
+            style={{
+              background: "#f7fbfd",
+              border: "1px solid #d6e6ef",
+              borderRadius: "16px",
+              padding: "18px",
+              marginTop: "10px",
+            }}
+          >
+            <p style={{ fontSize: "14px", color: "#5f6b75", lineHeight: 1.6 }}>
+              By submitting this form, I confirm that I am ready to move forward
+              with Family First Budgeting services. I understand that this form
+              is the first step in working together and that the information I
+              provide will be used to create my personalized budgeting plan.
+            </p>
+
+            <p style={{ fontSize: "14px", color: "#5f6b75", lineHeight: 1.6 }}>
+              I understand that Family First Budgeting provides budgeting
+              support and coaching only, and does not provide financial, legal,
+              tax, or investment advice.
+            </p>
+
+            <p style={{ fontSize: "14px", color: "#5f6b75", lineHeight: 1.6 }}>
+              I confirm that the information I have provided is accurate to the
+              best of my knowledge.
+            </p>
+
+            <label
+              style={{ display: "block", marginTop: "10px", fontSize: "14px" }}
+            >
+              <input type="checkbox" name="agree_services" required /> I
+              understand and agree to move forward with budgeting services.
+            </label>
+
+            <label
+              style={{ display: "block", marginTop: "8px", fontSize: "14px" }}
+            >
+              <input type="checkbox" name="agree_accuracy" required /> I confirm
+              my information is accurate to the best of my knowledge.
+            </label>
+          </div>
+
           <button type="submit" style={buttonStyle}>
-            Start My Budget Plan
+            Move Forward With My Budget Plan
           </button>
 
           <p
@@ -436,7 +496,7 @@ export default function IntakeForm() {
           >
             ✔ Takes just a few minutes
             <br />
-            ✔ No commitment required
+            ✔ No commitment required until next steps are reviewed
           </p>
         </form>
       </div>
