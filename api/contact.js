@@ -14,13 +14,13 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
-    const result = await resend.emails.send({
+    const data = await resend.emails.send({
       from: process.env.FROM_EMAIL,
       to: process.env.TO_EMAIL,
       reply_to: email,
-      subject: "New Contact Form Submission - Family First Budgeting",
+      subject: "New Contact Form Submission",
       html: `
-        <h2>New Contact Form Submission</h2>
+        <h3>New Lead</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
@@ -28,11 +28,13 @@ export default async function handler(req, res) {
       `,
     });
 
-    return res.status(200).json({ ok: true, result });
+    console.log("Resend success:", data);
+
+    return res.status(200).json({ message: "Email sent", data });
   } catch (error) {
-    console.error("Contact form error:", error);
+    console.error("Resend error:", error);
     return res.status(500).json({
-      error: error?.message || "Failed to send message",
+      error: error?.message || "Email failed",
     });
   }
 }

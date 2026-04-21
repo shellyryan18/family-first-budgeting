@@ -1,66 +1,36 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 export default function Payment() {
   useEffect(() => {
-    const scriptId = "paypal-hosted-buttons-sdk";
+    if (window.paypal) {
+      window.paypal
+        .HostedButtons({
+          hostedButtonId: "MUJ2HRPYMBQ7Q",
+        })
+        .render("#paypal-monthly");
 
-    const renderButtons = () => {
-      if (!window.paypal || !window.paypal.HostedButtons) return;
-
-      // MONTHLY BUTTON
-      if (
-        document.getElementById("paypal-container-monthly") &&
-        !document.getElementById("paypal-container-monthly").hasChildNodes()
-      ) {
-        window.paypal
-          .HostedButtons({
-            hostedButtonId: "MUJ2HRPYMBQ7Q",
-          })
-          .render("#paypal-container-monthly");
-      }
-
-      // 3-MONTH BUTTON
-      if (
-        document.getElementById("paypal-container-3month") &&
-        !document.getElementById("paypal-container-3month").hasChildNodes()
-      ) {
-        window.paypal
-          .HostedButtons({
-            hostedButtonId: "RXQX8NU5GSLM4",
-          })
-          .render("#paypal-container-3month");
-      }
-    };
-
-    const existingScript = document.getElementById(scriptId);
-
-    if (existingScript) {
-      renderButtons();
-      return;
+      window.paypal
+        .HostedButtons({
+          hostedButtonId: "RXQX8NU5GSLM4",
+        })
+        .render("#paypal-3month");
     }
-
-    const script = document.createElement("script");
-    script.id = scriptId;
-    script.src =
-      "https://www.paypal.com/sdk/js?client-id=BAAf1lH5KtGCcavkfw0oCuJI3ZiXLJi5UvvcP4qr9HI53qh9NiR-6Sdb1DIOz0SsVziW-1d2tdePVrwmdE&components=hosted-buttons&enable-funding=venmo&currency=USD";
-    script.async = true;
-    script.onload = renderButtons;
-    document.body.appendChild(script);
   }, []);
 
   return (
     <div style={page}>
-      <div style={container}>
-        <h1 style={title}>Choose Your Plan</h1>
+      <h1 style={header}>Choose Your Plan</h1>
 
-        <p style={subtitle}>
-          You're one step away from getting your budget organized and under
-          control.
-        </p>
+      <p style={subheader}>
+        You're one step away from getting your finances under control.
+      </p>
 
-        {/* MONTHLY PLAN */}
+      <p style={urgency}>⚡ Limited availability — secure your spot today</p>
+
+      <div style={grid}>
+        {/* MONTHLY */}
         <div style={card}>
-          <h2>Monthly Plan</h2>
+          <h2 style={planTitle}>Monthly Plan</h2>
           <p style={price}>$50</p>
 
           <ul style={list}>
@@ -70,87 +40,105 @@ export default function Payment() {
             <li>Custom plan for your situation</li>
           </ul>
 
-          <div id="paypal-container-monthly" />
+          <div style={paypalWrapper}>
+            <div id="paypal-monthly"></div>
+          </div>
         </div>
 
-        {/* 3-MONTH PLAN */}
-        <div
-          style={{
-            ...card,
-            marginTop: "30px",
-            border: "2px solid #7fb8a4",
-          }}
-        >
-          <h2>3-Month Plan (Save 10%)</h2>
+        {/* 3 MONTH */}
+        <div style={card}>
+          <h2 style={planTitle}>3-Month Plan (Save 10%)</h2>
           <p style={price}>$135</p>
 
           <ul style={list}>
             <li>Everything in monthly plan</li>
             <li>3 months of support</li>
-            <li>Consistency & accountability</li>
-            <li>Save $15</li>
+            <li>Priority adjustments</li>
           </ul>
 
-          <div id="paypal-container-3month" />
+          <div style={paypalWrapper}>
+            <div id="paypal-3month"></div>
+          </div>
         </div>
-
-        <p style={small}>
-          No long-term contracts. Continue only if it’s helping you.
-        </p>
       </div>
+
+      <p style={secure}>🔒 Secure checkout powered by PayPal</p>
     </div>
   );
 }
 
+/* ================= STYLES ================= */
+
 const page = {
   fontFamily: "Arial, sans-serif",
-  minHeight: "100vh",
   background: "#eef6fb",
+  minHeight: "100vh",
   padding: "40px 20px",
   textAlign: "center",
 };
 
-const container = {
-  maxWidth: "700px",
-  margin: "0 auto",
-  background: "#ffffff",
-  padding: "40px",
-  borderRadius: "20px",
-  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-  border: "1px solid #d6e6ef",
-};
-
-const title = {
+const header = {
+  fontSize: "36px",
   color: "#1f3c46",
+  marginBottom: "10px",
 };
 
-const subtitle = {
-  color: "#5f6b75",
-  marginBottom: "30px",
+const subheader = {
+  color: "#6c7a86",
+  marginBottom: "10px",
+};
+
+const urgency = {
+  color: "#d9534f",
+  fontWeight: "600",
+  marginBottom: "25px",
+};
+
+const grid = {
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+  gap: "20px",
 };
 
 const card = {
   background: "#f9fcfd",
   border: "1px solid #d6e6ef",
   borderRadius: "16px",
-  padding: "20px",
+  padding: "25px",
+  width: "320px",
+  boxShadow: "0 8px 20px rgba(0,0,0,0.05)",
+};
+
+const planTitle = {
+  color: "#1f3c46",
+  fontSize: "26px",
+  fontWeight: "800",
+  marginBottom: "5px",
 };
 
 const price = {
-  fontSize: "28px",
-  fontWeight: "bold",
   color: "#7fb8a4",
+  fontSize: "28px",
+  fontWeight: "700",
+  marginBottom: "15px",
 };
 
 const list = {
   textAlign: "left",
-  marginBottom: "20px",
   color: "#5f6b75",
-  lineHeight: "1.8",
+  marginBottom: "20px",
+  lineHeight: "1.6",
 };
 
-const small = {
-  marginTop: "25px",
-  fontSize: "13px",
+const paypalWrapper = {
+  background: "#ffffff",
+  padding: "12px",
+  borderRadius: "12px",
+};
+
+const secure = {
+  marginTop: "30px",
   color: "#6c7a86",
+  fontSize: "13px",
 };
