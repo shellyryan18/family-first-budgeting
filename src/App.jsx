@@ -119,10 +119,14 @@ export default function App() {
               Ask a Question
             </a>
 
-            <a href="/#/intake" style={primaryButton}>
-              Get Started Now
-            </a>
-          </div>
+            <<a
+  href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={primaryButton}
+>
+  Get Started Now
+</a>
 
           <p
             style={{
