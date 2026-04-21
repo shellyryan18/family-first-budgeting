@@ -65,3 +65,14 @@ button {
   background: #cfd8dc;
   border-radius: 10px;
 }
+#paypal-monthly,
+#paypal-3month {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+#paypal-monthly > div,
+#paypal-3month > div {
+  width: 100% !important;
+  min-width: 100% !important;
+}

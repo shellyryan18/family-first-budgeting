@@ -66,7 +66,7 @@ export default function Payment() {
           </ul>
 
           <div style={paypalWrapper}>
-            <div id="paypal-monthly" />
+            <div id="paypal-monthly" style={paypalContainer} />
           </div>
         </div>
 
@@ -81,7 +81,7 @@ export default function Payment() {
           </ul>
 
           <div style={paypalWrapper}>
-            <div id="paypal-3month" />
+            <div id="paypal-3month" style={paypalContainer} />
           </div>
         </div>
       </div>
@@ -155,12 +155,15 @@ const list = {
 
 const paypalWrapper = {
   background: "#ffffff",
-  padding: "12px",
+  padding: "16px",
   borderRadius: "12px",
-  minHeight: "170px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  width: "100%",
+  overflow: "hidden",
+};
+
+const paypalContainer = {
+  width: "100%",
+  minWidth: "100%",
 };
 
 const secure = {
