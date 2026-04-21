@@ -25,13 +25,25 @@ export default function App() {
 
         {/* BUTTON */}
         <a
-          href="https://forms.gle/ZN72H1Sj7r9Vn6wu7"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeRyzK1Cx35azEnkwed2nxCK_hzIpAALTVNvbc2lNAfg18icw/viewform?usp=dialog"
+          <a
           target="_blank"
           rel="noopener noreferrer"
-          style={button}
-        >
-          Get Started Now
-        </a>
+          style={{
+            background: "linear-gradient(135deg, #7fb8a4 0%, #6fae99 100%)",
+            color: "#fff",
+            padding: "14px 22px",
+            borderRadius: "14px",
+            textDecoration: "none",
+            fontWeight: "700",
+            boxShadow: "0 8px 20px rgba(127,184,164,0.26)",
+            display: "inline-block",
+            marginBottom: "10px",
+          }}
+>
+  Get Started Now
+</a>
+          
 
         <p style={subtext}>
           Ready to take control of your finances? Let’s start today.
