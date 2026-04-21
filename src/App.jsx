@@ -25,7 +25,7 @@ export default function App() {
 
         {/* BUTTON */}
         <a
-          href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE"
+          href="https://forms.gle/ZN72H1Sj7r9Vn6wu7"
           target="_blank"
           rel="noopener noreferrer"
           style={button}
