@@ -1,6 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function App() {
+  const [contactData, setContactData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [contactStatus, setContactStatus] = useState("");
+
+  async function handleContactSubmit(e) {
+    e.preventDefault();
+    setContactStatus("Sending...");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contactData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send");
+      }
+
+      setContactStatus("Message sent successfully.");
+      setContactData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setContactStatus("Something went wrong. Please try again.");
+    }
+  }
+
   return (
     <div style={page}>
       <div style={container}>
@@ -23,6 +54,55 @@ export default function App() {
         <p style={subtext}>
           Ready to take control of your finances? Let’s start today.
         </p>
+
+        <div style={contactSection}>
+          <h2 style={contactHeading}>Just Contact Me</h2>
+          <p style={contactIntro}>
+            Not ready to fully commit yet? Send me a message here and I’ll be
+            happy to answer your questions.
+          </p>
+
+          <form onSubmit={handleContactSubmit} style={formStyle}>
+            <input
+              type="text"
+              placeholder="Your Name"
+              required
+              value={contactData.name}
+              onChange={(e) =>
+                setContactData({ ...contactData, name: e.target.value })
+              }
+              style={inputStyle}
+            />
+
+            <input
+              type="email"
+              placeholder="Your Email"
+              required
+              value={contactData.email}
+              onChange={(e) =>
+                setContactData({ ...contactData, email: e.target.value })
+              }
+              style={inputStyle}
+            />
+
+            <textarea
+              placeholder="Tell me what you need help with"
+              required
+              rows="5"
+              value={contactData.message}
+              onChange={(e) =>
+                setContactData({ ...contactData, message: e.target.value })
+              }
+              style={inputStyle}
+            />
+
+            <button type="submit" style={button}>
+              Send Message
+            </button>
+
+            {contactStatus && <p style={statusText}>{contactStatus}</p>}
+          </form>
+        </div>
 
         <div style={contactBox}>
           <p style={contactText}>
@@ -62,7 +142,8 @@ const container = {
   background: "#ffffff",
   padding: "40px",
   borderRadius: "20px",
-  maxWidth: "650px",
+  maxWidth: "720px",
+  width: "100%",
   textAlign: "center",
   boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
   border: "1px solid #d6e6ef",
@@ -107,18 +188,60 @@ const button = {
   boxShadow: "0 8px 20px rgba(127,184,164,0.26)",
   display: "inline-block",
   marginBottom: "10px",
+  border: "none",
+  cursor: "pointer",
 };
 
 const subtext = {
   fontSize: "13px",
   color: "#6c7a86",
-  marginBottom: "25px",
+  marginBottom: "30px",
+};
+
+const contactSection = {
+  textAlign: "left",
+  marginTop: "10px",
+  paddingTop: "20px",
+  borderTop: "1px solid #e0e7ec",
+};
+
+const contactHeading = {
+  textAlign: "center",
+  color: "#1f3c46",
+  marginBottom: "10px",
+};
+
+const contactIntro = {
+  textAlign: "center",
+  color: "#5f6b75",
+  marginBottom: "20px",
+};
+
+const formStyle = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "12px",
+};
+
+const inputStyle = {
+  padding: "12px",
+  borderRadius: "10px",
+  border: "1px solid #cfd8dc",
+  fontSize: "14px",
+  width: "100%",
+  boxSizing: "border-box",
+};
+
+const statusText = {
+  textAlign: "center",
+  color: "#5f6b75",
+  marginTop: "10px",
 };
 
 const contactBox = {
   borderTop: "1px solid #e0e7ec",
   paddingTop: "15px",
-  marginTop: "10px",
+  marginTop: "30px",
 };
 
 const contactText = {
