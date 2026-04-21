@@ -4,49 +4,26 @@ export default function App() {
   return (
     <div style={page}>
       <div style={container}>
-        {/* HEADER */}
         <h1 style={title}>Family First Budgeting</h1>
 
-        <p style={slogan}>
-          Fighting the economy, one family at a time
-        </p>
+        <p style={slogan}>Fighting the economy, one family at a time</p>
 
-        {/* PROMO */}
-        <p style={promo}>
-          🎉 First 5 clients receive their first month FREE
-        </p>
+        <p style={promo}>🎉 First 5 clients receive their first month FREE</p>
 
-        {/* DESCRIPTION */}
         <p style={description}>
           I help families take control of their finances by creating simple,
           realistic monthly budget plans based on your real income and actual
           bills — no judgment, no complicated systems.
         </p>
 
-        {/* BUTTON */}
-        <a
-          href="/#/intake"
-          style={{
-            background: "linear-gradient(135deg, #7fb8a4 0%, #6fae99 100%)",
-            color: "#fff",
-            padding: "14px 22px",
-            borderRadius: "14px",
-            textDecoration: "none",
-            fontWeight: "700",
-            boxShadow: "0 8px 20px rgba(127,184,164,0.26)",
-            display: "inline-block",
-          }}
-        >
-            Get Started Now
-</a>
-</a>
-          
+        <a href="/#/intake" style={button}>
+          Get Started Now
+        </a>
 
         <p style={subtext}>
           Ready to take control of your finances? Let’s start today.
         </p>
 
-        {/* CONTACT */}
         <div style={contactBox}>
           <p style={contactText}>
             📧 MSullivan.FamilyFirstBudgeting@outlook.com
@@ -62,7 +39,6 @@ export default function App() {
           </a>
         </div>
 
-        {/* DISCLAIMER */}
         <p style={disclaimer}>
           Family First Budgeting provides budgeting guidance and support only.
           We do not provide financial, legal, tax, or investment advice.
