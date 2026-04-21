@@ -25,10 +25,8 @@ export default function App() {
 
         {/* BUTTON */}
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeRyzK1Cx35azEnkwed2nxCK_hzIpAALTVNvbc2lNAfg18icw/viewform?usp=dialog"
           <a
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/#/intake"
           style={{
             background: "linear-gradient(135deg, #7fb8a4 0%, #6fae99 100%)",
             color: "#fff",
@@ -38,10 +36,10 @@ export default function App() {
             fontWeight: "700",
             boxShadow: "0 8px 20px rgba(127,184,164,0.26)",
             display: "inline-block",
-            marginBottom: "10px",
           }}
->
-  Get Started Now
+        >
+            Get Started Now
+</a>
 </a>
           
 
