@@ -6,6 +6,9 @@ export default function IntakeForm() {
     email: "",
     phone: "",
 
+    current_checking_balance: "",
+    current_savings_balance: "",
+
     paycheck_1_amount: "",
     paycheck_1_date: "",
     paycheck_2_amount: "",
@@ -208,6 +211,39 @@ export default function IntakeForm() {
             />
           </Section>
 
+          <Section title="Current Account Balances">
+            <p style={sectionNote}>
+              To build your budget accurately, I need your current account
+              balances. This helps me calculate how your money will flow between
+              paychecks.
+            </p>
+
+            <div style={rowStyle}>
+              <input
+                type="number"
+                placeholder="Current Checking Balance"
+                value={formData.current_checking_balance}
+                onChange={(e) =>
+                  updateField("current_checking_balance", e.target.value)
+                }
+                style={inputStyle}
+              />
+              <input
+                type="number"
+                placeholder="Current Savings Balance"
+                value={formData.current_savings_balance}
+                onChange={(e) =>
+                  updateField("current_savings_balance", e.target.value)
+                }
+                style={inputStyle}
+              />
+            </div>
+
+            <p style={smallNote}>
+              Please enter your current balances as accurately as possible.
+            </p>
+          </Section>
+
           <Section title="Income">
             <TwoCol
               a={{ name: "paycheck_1_amount", placeholder: "Paycheck 1 Amount" }}
@@ -222,8 +258,14 @@ export default function IntakeForm() {
               updateField={updateField}
             />
             <TwoCol
-              a={{ name: "other_income_amount", placeholder: "Other Income Amount" }}
-              b={{ name: "other_income_date", placeholder: "Other Income Pay Date" }}
+              a={{
+                name: "other_income_amount",
+                placeholder: "Other Income Amount",
+              }}
+              b={{
+                name: "other_income_date",
+                placeholder: "Other Income Pay Date",
+              }}
               formData={formData}
               updateField={updateField}
             />
@@ -759,6 +801,24 @@ const sectionContent = {
   display: "flex",
   flexDirection: "column",
   gap: "12px",
+};
+
+const sectionNote = {
+  color: "#5f6b75",
+  fontSize: "14px",
+  lineHeight: 1.6,
+  marginTop: 0,
+  marginBottom: "6px",
+  textAlign: "left",
+};
+
+const smallNote = {
+  color: "#8a97a3",
+  fontSize: "12px",
+  lineHeight: 1.5,
+  marginTop: "2px",
+  marginBottom: 0,
+  textAlign: "left",
 };
 
 const rowStyle = {

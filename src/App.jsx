@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { track } from "@vercel/analytics";
 
 export default function App() {
   const [contactData, setContactData] = useState({

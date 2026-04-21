@@ -33,6 +33,8 @@ export default async function handler(req, res) {
         ${row("Full Name", data.full_name)}
         ${row("Email", data.email)}
         ${row("Phone", data.phone)}
+        ${row("Current Checking Balance", data.current_checking_balance)}
+        ${row("Current Savings Balance", data.current_savings_balance)}
         ${row("Paycheck 1 Amount", data.paycheck_1_amount)}
         ${row("Paycheck 1 Pay Date", data.paycheck_1_date)}
         ${row("Paycheck 2 Amount", data.paycheck_2_amount)}
