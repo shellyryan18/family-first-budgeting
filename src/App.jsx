@@ -37,17 +37,23 @@ export default function App() {
     <div style={page}>
       <div style={container}>
         <h1 style={title}>Family First Budgeting</h1>
-        <h1 style={title}>
-  Stop Guessing With Your Money — Start Feeling In Control Again
-</h1>
-<p style={subtext}>
-  I build real, personalized plans based on your actual income and bills — so you always know what’s coming next.
+
+<p style={headline}>
+  Take Control of Your Money — Paycheck by Paycheck
 </p>
 
-        <p style={slogan}>Fighting the economy, one family at a time</p>
+<p style={description}>
+  Personalized budget plans built around your real income, bills, and paydays —
+  so you know what gets paid, what’s left, and what’s coming next.
+</p>
 
-        <p style={promo}>🎉 First 5 clients receive their first month FREE</p>
+<p style={slogan}>
+  Fighting the economy, one family at a time
+</p>
 
+<p style={promo}>
+  🎉 First 5 clients receive their first month FREE
+</p>
         <div style={aboutWrapper}>
   <h2 style={aboutTitle}>About Family First Budgeting</h2>
 
@@ -94,7 +100,7 @@ export default function App() {
           Get Started Now
         </a>
 
-        <p style={subtext}>
+        <p style={headline}>
           Ready to take control of your finances? Let’s start today.
         </p>
 
@@ -192,13 +198,6 @@ const container = {
   border: "1px solid #d6e6ef",
 };
 
-const title = {
-  color: "#1f3c46",
-  fontSize: "32px",
-  fontWeight: "bold",
-  marginBottom: "10px",
-};
-
 const slogan = {
   color: "#7fb8a4",
   fontSize: "16px",
@@ -233,12 +232,6 @@ const button = {
   marginBottom: "10px",
   border: "none",
   cursor: "pointer",
-};
-
-const subtext = {
-  fontSize: "13px",
-  color: "#6c7a86",
-  marginBottom: "30px",
 };
 
 const contactSection = {
@@ -347,4 +340,43 @@ const aboutBold = {
   fontWeight: "700",
   fontSize: "16px",
   marginBottom: 0,
+};
+
+const title = {
+  color: "#1f3c46",
+  fontSize: "34px",
+  fontWeight: "800",
+  marginBottom: "8px",
+};
+
+const headline = {
+  color: "#1f3c46",
+  fontSize: "24px",
+  fontWeight: "700",
+  lineHeight: "1.3",
+  marginBottom: "12px",
+};
+
+const description = {
+  color: "#5f6b75",
+  fontSize: "15px",
+  lineHeight: "1.6",
+  maxWidth: "560px",
+  margin: "0 auto 22px auto",
+};
+
+const slogan = {
+  color: "#7fb8a4",
+  fontSize: "16px",
+  fontWeight: "700",
+  marginBottom: "20px",
+};
+
+const promo = {
+  background: "#e8f6f1",
+  padding: "12px",
+  borderRadius: "10px",
+  color: "#2e6f5e",
+  fontWeight: "bold",
+  marginBottom: "22px",
 };
