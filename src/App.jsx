@@ -39,7 +39,7 @@ export default function App() {
         <h1 style={title}>Family First Budgeting</h1>
 
 <p style={headline}>
-  Take Control of Your Money — Paycheck by Paycheck
+  Take Control of Your Money, One Paycheck at a Time
 </p>
 
 <p style={description}>
