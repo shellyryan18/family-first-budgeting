@@ -37,6 +37,12 @@ export default function App() {
     <div style={page}>
       <div style={container}>
         <h1 style={title}>Family First Budgeting</h1>
+        <h1 style={title}>
+  Stop Guessing With Your Money — Start Feeling In Control Again
+</h1>
+<p style={subtext}>
+  I build real, personalized plans based on your actual income and bills — so you always know what’s coming next.
+</p>
 
         <p style={slogan}>Fighting the economy, one family at a time</p>
 
