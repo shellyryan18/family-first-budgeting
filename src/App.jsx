@@ -42,11 +42,47 @@ export default function App() {
 
         <p style={promo}>🎉 First 5 clients receive their first month FREE</p>
 
-        <p style={description}>
-          I help families take control of their finances by creating simple,
-          realistic monthly budget plans based on your real income and actual
-          bills — no judgment, no complicated systems.
-        </p>
+        <div style={aboutWrapper}>
+  <h2 style={aboutTitle}>About Family First Budgeting</h2>
+
+  <p style={aboutText}>
+    My mission is simple — to help everyday families feel in control of their
+    money again.
+  </p>
+
+  <p style={aboutText}>
+    Too often, budgeting feels overwhelming. Bills come in, paychecks go out,
+    and it can feel like you’re just hoping there’s enough left over to make it
+    to the next cycle.
+  </p>
+
+  <p style={aboutText}>
+    At Family First Budgeting, I take your real income and your actual bills
+    and build a personalized plan that shows exactly how everything works
+    together — paycheck by paycheck.
+  </p>
+
+  <div style={aboutList}>
+    <p>✔ Know what gets paid and when</p>
+    <p>✔ See what your account will look like after each paycheck</p>
+    <p>✔ Understand what you actually have left over</p>
+    <p>✔ Clearly see how much you can save vs use for everyday life</p>
+  </div>
+
+  <p style={aboutText}>
+    This is something I personally do with every paycheck I receive — I even
+    have my own finances mapped out for a full year ahead.
+  </p>
+
+  <p style={aboutClosing}>
+    No judgment. No pressure. Just a simple, realistic plan that works for your
+    life.
+  </p>
+
+  <p style={aboutBold}>
+    Stop stressing. Stop guessing. Start living.
+  </p>
+</div>
 
         <a href="/#/intake" style={button}>
           Get Started Now
@@ -260,4 +296,49 @@ const disclaimer = {
   marginTop: "25px",
   fontSize: "12px",
   color: "#8a97a3",
+};
+const aboutWrapper = {
+  background: "#f7fbfd",
+  border: "1px solid #d6e6ef",
+  borderRadius: "18px",
+  padding: "24px",
+  marginTop: "20px",
+  marginBottom: "25px",
+  textAlign: "left",
+};
+
+const aboutTitle = {
+  textAlign: "center",
+  color: "#1f3c46",
+  fontSize: "26px",
+  marginBottom: "14px",
+};
+
+const aboutText = {
+  color: "#5f6b75",
+  lineHeight: "1.7",
+  marginBottom: "12px",
+};
+
+const aboutList = {
+  background: "#ffffff",
+  border: "1px solid #d6e6ef",
+  borderRadius: "12px",
+  padding: "14px 18px",
+  margin: "16px 0",
+  color: "#1f3c46",
+  lineHeight: "1.7",
+};
+
+const aboutClosing = {
+  color: "#1f3c46",
+  fontWeight: "500",
+  marginBottom: "10px",
+};
+
+const aboutBold = {
+  color: "#1f3c46",
+  fontWeight: "700",
+  fontSize: "16px",
+  marginBottom: 0,
 };
