@@ -183,41 +183,60 @@ const page = {
   minHeight: "100vh",
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
-  padding: "20px",
+  alignItems: "flex-start",
+  padding: "35px 20px",
 };
 
 const container = {
   background: "#ffffff",
-  padding: "40px",
+  padding: "32px",
   borderRadius: "20px",
-  maxWidth: "720px",
+  maxWidth: "760px",
   width: "100%",
   textAlign: "center",
   boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
   border: "1px solid #d6e6ef",
 };
 
-const slogan = {
-  color: "#7fb8a4",
-  fontSize: "16px",
-  marginBottom: "20px",
-  fontWeight: "600",
+const title = {
+  color: "#1f3c46",
+  fontSize: "30px",
+  fontWeight: "800",
+  marginBottom: "6px",
 };
 
-const promo = {
-  background: "#e8f6f1",
-  padding: "10px",
-  borderRadius: "10px",
-  color: "#2e6f5e",
-  fontWeight: "bold",
-  marginBottom: "20px",
+const headline = {
+  color: "#1f3c46",
+  fontSize: "26px",
+  fontWeight: "800",
+  lineHeight: "1.25",
+  marginBottom: "12px",
 };
 
 const description = {
   color: "#5f6b75",
+  fontSize: "15px",
   lineHeight: "1.6",
-  marginBottom: "25px",
+  maxWidth: "560px",
+  margin: "0 auto 20px auto",
+};
+
+const slogan = {
+  color: "#7fb8a4",
+  fontSize: "15px",
+  fontWeight: "700",
+  marginBottom: "18px",
+};
+
+const promo = {
+  background: "#e8f6f1",
+  padding: "11px 16px",
+  borderRadius: "10px",
+  color: "#2e6f5e",
+  fontWeight: "700",
+  fontSize: "14px",
+  marginBottom: "24px",
+  display: "inline-block",
 };
 
 const button = {
@@ -232,6 +251,52 @@ const button = {
   marginBottom: "10px",
   border: "none",
   cursor: "pointer",
+};
+
+const aboutWrapper = {
+  background: "#f7fbfd",
+  border: "1px solid #d6e6ef",
+  borderRadius: "18px",
+  padding: "24px",
+  marginTop: "8px",
+  marginBottom: "25px",
+  textAlign: "left",
+};
+
+const aboutTitle = {
+  textAlign: "center",
+  color: "#1f3c46",
+  fontSize: "26px",
+  marginBottom: "14px",
+};
+
+const aboutText = {
+  color: "#5f6b75",
+  lineHeight: "1.7",
+  marginBottom: "12px",
+};
+
+const aboutList = {
+  background: "#ffffff",
+  border: "1px solid #d6e6ef",
+  borderRadius: "12px",
+  padding: "14px 18px",
+  margin: "16px 0",
+  color: "#1f3c46",
+  lineHeight: "1.7",
+};
+
+const aboutClosing = {
+  color: "#1f3c46",
+  fontWeight: "500",
+  marginBottom: "10px",
+};
+
+const aboutBold = {
+  color: "#1f3c46",
+  fontWeight: "700",
+  fontSize: "16px",
+  marginBottom: 0,
 };
 
 const contactSection = {
@@ -295,88 +360,4 @@ const disclaimer = {
   marginTop: "25px",
   fontSize: "12px",
   color: "#8a97a3",
-};
-const aboutWrapper = {
-  background: "#f7fbfd",
-  border: "1px solid #d6e6ef",
-  borderRadius: "18px",
-  padding: "24px",
-  marginTop: "20px",
-  marginBottom: "25px",
-  textAlign: "left",
-};
-
-const aboutTitle = {
-  textAlign: "center",
-  color: "#1f3c46",
-  fontSize: "26px",
-  marginBottom: "14px",
-};
-
-const aboutText = {
-  color: "#5f6b75",
-  lineHeight: "1.7",
-  marginBottom: "12px",
-};
-
-const aboutList = {
-  background: "#ffffff",
-  border: "1px solid #d6e6ef",
-  borderRadius: "12px",
-  padding: "14px 18px",
-  margin: "16px 0",
-  color: "#1f3c46",
-  lineHeight: "1.7",
-};
-
-const aboutClosing = {
-  color: "#1f3c46",
-  fontWeight: "500",
-  marginBottom: "10px",
-};
-
-const aboutBold = {
-  color: "#1f3c46",
-  fontWeight: "700",
-  fontSize: "16px",
-  marginBottom: 0,
-};
-
-const title = {
-  color: "#1f3c46",
-  fontSize: "34px",
-  fontWeight: "800",
-  marginBottom: "8px",
-};
-
-const headline = {
-  color: "#1f3c46",
-  fontSize: "24px",
-  fontWeight: "700",
-  lineHeight: "1.3",
-  marginBottom: "12px",
-};
-
-const description = {
-  color: "#5f6b75",
-  fontSize: "15px",
-  lineHeight: "1.6",
-  maxWidth: "560px",
-  margin: "0 auto 22px auto",
-};
-
-const slogan = {
-  color: "#7fb8a4",
-  fontSize: "16px",
-  fontWeight: "700",
-  marginBottom: "20px",
-};
-
-const promo = {
-  background: "#e8f6f1",
-  padding: "12px",
-  borderRadius: "10px",
-  color: "#2e6f5e",
-  fontWeight: "bold",
-  marginBottom: "22px",
 };
