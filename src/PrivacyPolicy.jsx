@@ -19,8 +19,10 @@ export default function PrivacyPolicy() {
               Safe To Spend may collect limited personal information necessary
               for app functionality, including:
             </p>
-            <ul>
-              <li>Email address used for account login</li>
+            <ul style={listStyle}>
+              <li>
+  Email address used for account login
+</li>
               <li>Budgeting information entered by the user</li>
               <li>Savings goals and spending information entered within the app</li>
               <li>Technical information required for app functionality and security</li>
@@ -29,7 +31,7 @@ export default function PrivacyPolicy() {
 
           <Section title="How We Use Information">
             <p>Information collected through Safe To Spend is used only to:</p>
-            <ul>
+            <ul style={listStyle}>            
               <li>Provide and maintain app functionality</li>
               <li>Save and sync budgeting information</li>
               <li>Improve app performance and user experience</li>
@@ -42,7 +44,7 @@ export default function PrivacyPolicy() {
               Family First Budgeting may collect limited information submitted
               through website contact forms, intake forms, or payment-related pages.
             </p>
-            <ul>
+            <ul style={listStyle}>                
               <li>Name</li>
               <li>Email address</li>
               <li>Budgeting and financial information voluntarily submitted</li>
@@ -80,7 +82,7 @@ export default function PrivacyPolicy() {
               We do not sell, rent, or trade personal information or budgeting
               data to third parties.
             </p>
-            <ul>
+            <ul style={listStyle}>               
               <li>Information may be shared when required by law</li>
               <li>To protect app security and prevent abuse</li>
               <li>Through trusted service providers needed to operate the app</li>
@@ -106,7 +108,7 @@ export default function PrivacyPolicy() {
           </Section>
 
           <Section title="Third-Party Services">
-            <ul>
+            <ul style={listStyle}>                
               <li>Google Firebase Authentication</li>
               <li>Google Firebase Firestore</li>
               <li>Google Play Services</li>
@@ -183,95 +185,105 @@ const page = {
   fontFamily: "Arial, sans-serif",
   background: "#eef6fb",
   minHeight: "100vh",
-  padding: "35px 16px",
+  padding: "24px 14px",
   color: "#1f3c46",
 };
 
 const card = {
-  maxWidth: "820px",
+  maxWidth: "720px",
   margin: "0 auto",
-  background: "#ffffff",
-  borderRadius: "22px",
-  padding: "42px",
-  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+  background: "#fcfdfd",
+  borderRadius: "16px",
+  padding: "22px",
+  boxShadow: "0 6px 20px rgba(0,0,0,0.06)",
   border: "1px solid #d6e6ef",
 };
 
 const header = {
   textAlign: "center",
-  maxWidth: "720px",
-  margin: "0 auto 30px auto",
+  marginBottom: "18px",
 };
 
 const title = {
   color: "#1f3c46",
-  fontSize: "46px",
-  marginBottom: "10px",
+  fontSize: "30px",
+  marginBottom: "6px",
+  fontWeight: "700",
 };
 
 const effective = {
   color: "#2e6f5e",
-  fontSize: "15px",
-  marginBottom: "14px",
+  fontSize: "14px",
+  marginBottom: "10px",
 };
 
 const intro = {
   color: "#5f6b75",
-  fontSize: "16px",
-  lineHeight: "1.6",
+  fontSize: "13px",
+  lineHeight: "1.5",
+  maxWidth: "580px",
+  margin: "0 auto",
 };
 
 const grid = {
   display: "flex",
   flexDirection: "column",
-  gap: "18px",
+  gap: "4px",
 };
 
 const section = {
-  background: "#ffffff",
-  borderLeft: "5px solid #7fb8a4",
-  padding: "18px 22px",
-  borderRadius: "12px",
-  boxShadow: "0 4px 14px rgba(0,0,0,0.04)",
+  borderBottom: "1px solid #e6edf1",
+  padding: "10px 0",
 };
 
 const sectionTitle = {
   color: "#1f3c46",
-  fontSize: "22px",
+  fontSize: "17px",
   marginTop: 0,
-  marginBottom: "8px",
+  marginBottom: "6px",
+  fontWeight: "700",
 };
 
 const sectionText = {
   color: "#5f6b75",
-  fontSize: "15px",
+  fontSize: "13.5px",
+  lineHeight: "1.55",
+};
+
+const listStyle = {
+  paddingLeft: "18px",
+  marginTop: "6px",
   lineHeight: "1.7",
 };
 
 const bottomSection = {
-  background: "#e8f6f1",
+  background: "#fafcfc",
   border: "1px solid #d6e6ef",
-  borderRadius: "16px",
-  padding: "18px 22px",
-  marginTop: "22px",
-  color: "#1f3c46",
-  lineHeight: "1.7",
+  borderRadius: "10px",
+  padding: "12px 14px",
+  marginTop: "12px",
+  color: "#5f6b75",
+  lineHeight: "1.6",
+  fontSize: "14px",
 };
 
 const bottomTitle = {
-  color: "#2e6f5e",
-  fontSize: "20px",
+  color: "#1f3c46",
+  fontSize: "17px",
   marginTop: 0,
-  marginBottom: "8px",
+  marginBottom: "6px",
 };
 
 const backLinkBox = {
   textAlign: "center",
-  marginTop: "26px",
+  marginTop: "18px",
 };
 
 const backLink = {
   color: "#7fb8a4",
-  fontWeight: "700",
+  fontWeight: "600",
   textDecoration: "none",
+  fontSize: "14px",
+  cursor: "pointer",
+  transition: "0.2s ease",
 };
