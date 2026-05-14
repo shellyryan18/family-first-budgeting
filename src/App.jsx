@@ -167,6 +167,18 @@ export default function App() {
             Visit us on Facebook
           </a>
         </div>
+        <div style={{ marginTop: "20px" }}>
+  <a
+    href="/#/privacy-policy"
+    style={{
+      color: "#7fb8a4",
+      textDecoration: "none",
+      fontWeight: "600",
+    }}
+  >
+    Privacy Policy
+  </a>
+</div>
 
         <p style={disclaimer}>
           Family First Budgeting provides budgeting guidance and support only.
