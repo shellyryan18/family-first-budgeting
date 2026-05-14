@@ -188,11 +188,11 @@ const page = {
 };
 
 const card = {
-  maxWidth: "980px",
+  maxWidth: "820px",
   margin: "0 auto",
   background: "#ffffff",
   borderRadius: "22px",
-  padding: "38px",
+  padding: "42px",
   boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
   border: "1px solid #d6e6ef",
 };
@@ -222,28 +222,29 @@ const intro = {
 };
 
 const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-  gap: "24px 34px",
+  display: "flex",
+  flexDirection: "column",
+  gap: "18px",
 };
 
 const section = {
-  background: "#f9fcfd",
-  border: "1px solid #d6e6ef",
-  borderRadius: "16px",
-  padding: "20px",
+  background: "#ffffff",
+  borderLeft: "5px solid #7fb8a4",
+  padding: "18px 22px",
+  borderRadius: "12px",
+  boxShadow: "0 4px 14px rgba(0,0,0,0.04)",
 };
 
 const sectionTitle = {
-  color: "#2e6f5e",
+  color: "#1f3c46",
   fontSize: "22px",
   marginTop: 0,
-  marginBottom: "10px",
+  marginBottom: "8px",
 };
 
 const sectionText = {
-  color: "#1f3c46",
-  fontSize: "14px",
+  color: "#5f6b75",
+  fontSize: "15px",
   lineHeight: "1.7",
 };
 
