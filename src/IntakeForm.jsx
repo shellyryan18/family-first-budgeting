@@ -664,7 +664,9 @@ function TwoCol({ a, b, formData, updateField }) {
 function BillRow({ label, amountName, dueName, formData, updateField }) {
   return (
     <div>
-      <label style={billLabel}>{label}</label>
+      <label style={{ ...billLabel, marginBottom: "7px" }}>
+  {label}
+</label>
       <div style={rowStyle}>
         <input
           type="text"
@@ -724,16 +726,16 @@ const page = {
   fontFamily: "Arial, sans-serif",
   minHeight: "100vh",
   background: "#eef6fb",
-  padding: "30px 16px",
+  padding: "24px 14px",
 };
 
 const container = {
-  maxWidth: "980px",
+  maxWidth: "820px",
   margin: "0 auto",
-  background: "#ffffff",
-  padding: "28px",
-  borderRadius: "20px",
-  boxShadow: "0 10px 28px rgba(0,0,0,0.07)",
+  background: "#fcfdfd",
+  padding: "24px",
+  borderRadius: "18px",
+  boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
   border: "1px solid #d6e6ef",
 };
 
@@ -741,82 +743,85 @@ const title = {
   textAlign: "center",
   color: "#1f3c46",
   margin: 0,
-  fontSize: "34px",
+  fontSize: "30px",
+  fontWeight: "700",
 };
 
 const subtitle = {
   textAlign: "center",
   color: "#5f6b75",
-  fontSize: "24px",
-  marginTop: "6px",
-  marginBottom: "14px",
+  fontSize: "20px",
+  marginTop: "5px",
+  marginBottom: "12px",
+  fontWeight: "600",
 };
 
 const topNote = {
   textAlign: "center",
   color: "#5f6b75",
-  fontSize: "14px",
-  lineHeight: 1.6,
-  marginBottom: "18px",
+  fontSize: "13px",
+  lineHeight: 1.55,
+  marginBottom: "16px",
 };
 
 const infoBox = {
   background: "#f7fbfd",
   border: "1px solid #d6e6ef",
-  borderRadius: "16px",
-  padding: "18px",
-  marginBottom: "22px",
+  borderRadius: "14px",
+  padding: "16px",
+  marginBottom: "18px",
 };
 
 const infoText = {
   color: "#5f6b75",
-  lineHeight: 1.7,
+  fontSize: "13.5px",
+  lineHeight: 1.6,
   marginTop: 0,
-  marginBottom: "12px",
+  marginBottom: "10px",
   textAlign: "left",
 };
 
 const formStyle = {
   display: "flex",
   flexDirection: "column",
-  gap: "18px",
+  gap: "14px",
 };
 
 const section = {
-  background: "#f9fcfd",
-  border: "1px solid #d6e6ef",
-  borderRadius: "16px",
-  padding: "18px",
-};
+  background: "#ffffff",
+  borderBottom: "1px solid #e4edf2",
+  padding: "14px 0",
+}
 
 const sectionTitle = {
   marginTop: 0,
-  marginBottom: "14px",
+  marginBottom: "12px",
   color: "#1f3c46",
-  fontSize: "26px",
-  textAlign: "center",
+  fontSize: "18px",
+  fontWeight: "700",
+  textAlign: "left",
 };
 
 const sectionContent = {
   display: "flex",
   flexDirection: "column",
-  gap: "12px",
+  gap: "10px",
 };
 
 const sectionNote = {
   color: "#5f6b75",
-  fontSize: "14px",
-  lineHeight: 1.6,
+  fontSize: "13.5px",
+  lineHeight: 1.55,
   marginTop: 0,
-  marginBottom: "6px",
+  marginBottom: "4px",
   textAlign: "left",
 };
 
 const smallNote = {
   color: "#8a97a3",
   fontSize: "12px",
-  lineHeight: 1.5,
-  marginTop: "2px",
+  lineHeight: 1.45,
+  marginTop: 0,
   marginBottom: 0,
   textAlign: "left",
 };
@@ -829,50 +834,52 @@ const rowStyle = {
 
 const threeColStyle = {
   display: "grid",
-  gridTemplateColumns: "1.2fr 1fr 1fr",
+  gridTemplateColumns: "1.3fr 1fr 1fr",
   gap: "10px",
 };
 
 const inputStyle = {
-  padding: "12px",
-  borderRadius: "10px",
+  padding: "11px 12px",
+  borderRadius: "9px",
   border: "1px solid #cfd8dc",
   fontSize: "14px",
   width: "100%",
   boxSizing: "border-box",
   background: "#ffffff",
   color: "#1f3c46",
+  outline: "none",
+  transition: "0.2s ease",
 };
 
 const billLabel = {
   display: "block",
-  marginBottom: "6px",
+  marginBottom: "5px",
   color: "#1f3c46",
-  fontWeight: "600",
-  fontSize: "14px",
+  fontWeight: "700",
+  fontSize: "13.5px",
 };
 
 const agreementBox = {
   background: "#f7fbfd",
   border: "1px solid #d6e6ef",
-  borderRadius: "16px",
-  padding: "20px",
-  marginTop: "20px",
+  borderRadius: "14px",
+  padding: "16px",
+  marginTop: "10px",
   textAlign: "left",
 };
 
 const agreementText = {
-  fontSize: "14px",
+  fontSize: "13.5px",
   color: "#5f6b75",
-  lineHeight: 1.7,
-  marginBottom: "12px",
+  lineHeight: 1.6,
+  marginBottom: "10px",
 };
 
 const checkItem = {
   display: "flex",
   alignItems: "flex-start",
   gap: "10px",
-  marginTop: "14px",
+  marginTop: "12px",
 };
 
 const checkInput = {
@@ -889,25 +896,27 @@ const checkInput = {
 };
 
 const checkLabel = {
-  fontSize: "14px",
+  fontSize: "13.5px",
   color: "#1f3c46",
-  lineHeight: 1.5,
+  lineHeight: 1.45,
   cursor: "pointer",
 };
 
 const submitButton = {
-  background: "#7fb8a4",
+  background: "linear-gradient(135deg, #7fb8a4 0%, #6fae99 100%)",
   color: "#ffffff",
   padding: "14px",
   border: "none",
-  borderRadius: "10px",
-  fontWeight: "bold",
+  borderRadius: "14px",
+  fontWeight: "700",
   fontSize: "15px",
   cursor: "pointer",
+  boxShadow: "0 8px 20px rgba(127,184,164,0.25)",
 };
 
 const statusText = {
   textAlign: "center",
   color: "#5f6b75",
-  marginTop: "6px",
+  fontSize: "13px",
+  marginTop: "4px",
 };
