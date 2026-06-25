@@ -602,20 +602,6 @@ Complete your secure PayPal payment below to reserve your project slot.
     label: "paypal",
   }}
 
-   <button
-
-  type="button"
-
-  onClick={sendWebsiteClientPacket}
-
-  style={button}
-
->
-
-  Test Client Packet Email
-
-</button>
-
   createOrder={(data, actions) => {
     return actions.order.create({
       purchase_units: [
@@ -642,6 +628,14 @@ Complete your secure PayPal payment below to reserve your project slot.
 </div>
 
 )}
+
+<button
+  type="button"
+  onClick={sendWebsiteClientPacket}
+  style={button}
+>
+  Test Client Packet Email
+</button>
 
   {depositPaid && (
     <p style={statusText}>
