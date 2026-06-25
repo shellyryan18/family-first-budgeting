@@ -164,20 +164,7 @@ setAgreementStatus(
   "Agreement accepted successfully. Please continue to Intake Form."
 );
 
-  }
-
-  function downloadAgreementText() {
-    const blob = new Blob([FULL_WEBSITE_AGREEMENT], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "Family-First-Budgeting-Website-Design-Agreement.txt";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  }
-
+  } 
 
   function updateIntake(field, value) {
     setIntakeData({ ...intakeData, [field]: value });
@@ -1886,8 +1873,7 @@ const headline = {
 const description = {
   color: "#5f6b75",
   fontSize: "14px",
-  lineHeight: "1.55",
-  maxWidth: "540px",
+  lineHeight: "1.55",  
   margin: "0 auto 18px auto",
   maxWidth: "620px",
 };
