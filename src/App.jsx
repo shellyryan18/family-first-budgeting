@@ -1673,16 +1673,25 @@ Select a service below to learn more about how Family First Budgeting can help y
 
   <div style={serviceCards}>
   <div style={serviceCard}>
-    <h3 style={serviceTitle}>💰 Budgeting Services</h3>
+  <div style={serviceCard}>
+  <h3 style={serviceTitle}>💰 Budgeting Services</h3>
 
-    <p style={serviceText}>
-      Personalized paycheck-by-paycheck budget plans built around your real income, bills, due dates, and paydays.
+  <p style={serviceText}>
+    Personalized paycheck-by-paycheck budget plans designed around your real income,
+    bills, due dates, and paydays.
+  </p>
+
+  <div style={maintenanceBox}>
+    <strong>🚧 Currently Under Maintenance</strong>
+
+    <p style={maintenanceText}>
+      Budgeting services are currently being updated and are temporarily unavailable for purchase.
     </p>
 
-   <div style={cardActionStack}>
-  <p style={{ ...promo, display: "block", marginBottom: "0" }}>
-    🎉 First 5 clients receive Month 1 FREE
-  </p>
+    <p style={maintenanceText}>
+      You are still welcome to learn more about the service and reach out by email with questions.
+    </p>
+  </div>
 
   <a href="#/budgeting-services" style={homeButton}>
     Learn More About Budgeting
@@ -2753,4 +2762,20 @@ const homeLink = {
   fontWeight: "600",
   marginBottom: "25px",
   fontSize: "14px",
+};
+
+const maintenanceBox = {
+  background: "#fff8e6",
+  border: "1px solid #f2d27a",
+  borderRadius: "12px",
+  padding: "12px",
+  margin: "15px 0",
+  color: "#8a6a00",
+  fontSize: "14px",
+  lineHeight: "1.6",
+};
+
+const maintenanceText = {
+  marginTop: "8px",
+  marginBottom: "8px",
 };
