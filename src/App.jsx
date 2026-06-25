@@ -164,7 +164,8 @@ setAgreementStatus(
   "Agreement accepted successfully. Please continue to Intake Form."
 );
 
-  } 
+  }
+ 
 
   function updateIntake(field, value) {
     setIntakeData({ ...intakeData, [field]: value });
@@ -600,6 +601,15 @@ Complete your secure PayPal payment below to reserve your project slot.
     color: "gold",
     label: "paypal",
   }}
+
+  {/* TEST BUTTON */}
+<button
+  type="button"
+  onClick={sendWebsiteClientPacket}
+  style={button}
+>
+  Test Client Packet Email
+</button>
 
   createOrder={(data, actions) => {
     return actions.order.create({
@@ -1776,15 +1786,7 @@ Select a service below to learn more about how Family First Budgeting can help y
               }
               style={inputStyle}
             />
-
-            <button
-  type="button"
-  onClick={sendWebsiteClientPacket}
-  style={button}
->
-  Test Client Packet Email
-</button>
-
+           
             <button type="submit" style={button}>
               Send Message             
             </button>
