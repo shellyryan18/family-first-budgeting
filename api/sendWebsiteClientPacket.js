@@ -12,20 +12,20 @@ export default async function handler(req, res) {
 
   try {
     const {
-      agreementData,
-      intakeData,
-      materialsData,
-      depositAmount,
-      projectTotal,
-      remainingBalance,
+      agreementData = {},
+      intakeData = {},
+      materialsData = {},
+      depositAmount = "125.00",
+      projectTotal = "250.00",
+      remainingBalance = "125.00",
     } = req.body;
 
     const emailBody = `
 NEW WEBSITE CLIENT PACKET
 
-Client: ${intakeData.clientName || agreementData.clientName}
-Business: ${intakeData.businessName || materialsData.businessName}
-Email: ${intakeData.email || agreementData.email}
+Client: ${intakeData.clientName || agreementData.clientName || ""}
+Business: ${intakeData.businessName || materialsData.businessName || ""}
+Email: ${intakeData.email || agreementData.email || ""}
 
 Attached is the completed Website Client Packet PDF.
 `;
@@ -47,6 +47,35 @@ Attached is the completed Website Client Packet PDF.
 
     let page = pdfDoc.addPage([612, 792]);
     let y = 735;
+    let pageNumber = 1;
+
+    function addFooter() {
+      page.drawLine({
+        start: { x: 50, y: 40 },
+        end: { x: 562, y: 40 },
+        thickness: 1,
+        color: rgb(0.84, 0.9, 0.93),
+      });
+
+      page.drawText(
+        "Family First Budgeting • Fighting the economy, one family at a time.",
+        {
+          x: 115,
+          y: 25,
+          size: 8,
+          font,
+          color: rgb(0.45, 0.5, 0.55),
+        }
+      );
+
+      page.drawText(`Page ${pageNumber}`, {
+        x: 510,
+        y: 25,
+        size: 8,
+        font,
+        color: rgb(0.45, 0.5, 0.55),
+      });
+    }
 
     function addHeader() {
       if (logoImage) {
@@ -77,6 +106,16 @@ Attached is the completed Website Client Packet PDF.
         color: rgb(0.36, 0.62, 0.53),
       });
 
+      y -= 18;
+
+      page.drawText(`Generated: ${new Date().toLocaleString("en-US")}`, {
+        x: 222,
+        y,
+        size: 9,
+        font,
+        color: rgb(0.45, 0.5, 0.55),
+      });
+
       y -= 25;
 
       page.drawLine({
@@ -90,37 +129,68 @@ Attached is the completed Website Client Packet PDF.
     }
 
     function newPage() {
+      addFooter();
       page = pdfDoc.addPage([612, 792]);
+      pageNumber += 1;
       y = 735;
       addHeader();
     }
 
     function write(text, size = 11, bold = false) {
       const safeText = String(text || "");
+      const maxChars = 85;
 
-      page.drawText(safeText.substring(0, 95), {
-        x: 50,
-        y,
-        size,
-        font: bold ? boldFont : font,
-        color: rgb(0.12, 0.24, 0.28),
-      });
+      const lines = safeText
+        .split("\n")
+        .flatMap((line) => {
+          if (line.length <= maxChars) return [line];
 
-      y -= size + 8;
+          const chunks = [];
+          let current = line;
 
-      if (y < 60) {
-        newPage();
+          while (current.length > maxChars) {
+            let breakPoint = current.lastIndexOf(" ", maxChars);
+            if (breakPoint === -1) breakPoint = maxChars;
+
+            chunks.push(current.slice(0, breakPoint));
+            current = current.slice(breakPoint).trim();
+          }
+
+          if (current.length) chunks.push(current);
+          return chunks;
+        });
+
+      for (const line of lines) {
+        if (y < 70) {
+          newPage();
+        }
+
+        page.drawText(line || " ", {
+          x: 50,
+          y,
+          size,
+          font: bold ? boldFont : font,
+          color: rgb(0.12, 0.24, 0.28),
+        });
+
+        y -= size + 6;
       }
+
+      y -= 4;
     }
 
     function sectionTitle(title) {
+      if (y < 90) {
+        newPage();
+      }
+
       y -= 5;
 
       page.drawRectangle({
         x: 45,
         y: y - 8,
         width: 522,
-        height: 26,
+        height: 28,
         color: rgb(0.93, 0.97, 0.95),
         borderColor: rgb(0.5, 0.72, 0.64),
         borderWidth: 1,
@@ -129,12 +199,20 @@ Attached is the completed Website Client Packet PDF.
       page.drawText(title, {
         x: 55,
         y,
-        size: 13,
+        size: 15,
         font: boldFont,
         color: rgb(0.18, 0.44, 0.37),
       });
 
-      y -= 28;
+      y -= 32;
+    }
+
+    function yesNo(value) {
+      return value ? "Yes" : "No";
+    }
+
+    function checkLine(label, value) {
+      write(`${value ? "✓" : "○"} ${label}`);
     }
 
     addHeader();
@@ -146,31 +224,31 @@ Attached is the completed Website Client Packet PDF.
     write("");
 
     sectionTitle("Agreement");
-    write(`Client Name: ${agreementData.clientName}`);
+    write(`Client Name: ${agreementData.clientName || ""}`);
     write(`Business Name: ${agreementData.businessName || ""}`);
-    write(`Email: ${agreementData.email}`);
+    write(`Email: ${agreementData.email || ""}`);
     write(`Phone: ${agreementData.phone || ""}`);
-    write(`Typed Signature: ${agreementData.typedSignature}`);
+    write(`Typed Signature: ${agreementData.typedSignature || ""}`);
     write(`Signed Date/Time: ${agreementData.signedAt || "Not captured"}`);
     write("");
 
     sectionTitle("Website Intake");
-    write(`Client Name: ${intakeData.clientName}`);
-    write(`Business Name: ${intakeData.businessName}`);
-    write(`Email: ${intakeData.email}`);
+    write(`Client Name: ${intakeData.clientName || ""}`);
+    write(`Business Name: ${intakeData.businessName || ""}`);
+    write(`Email: ${intakeData.email || ""}`);
     write(`Phone: ${intakeData.phone || ""}`);
     write("");
 
     write("Business Description:", 11, true);
-    write(intakeData.businessDescription);
+    write(intakeData.businessDescription || "");
     write("");
 
     write("Services:", 11, true);
-    write(intakeData.services);
+    write(intakeData.services || "");
     write("");
 
     write("Business Hours:", 11, true);
-    write(intakeData.businessHours);
+    write(intakeData.businessHours || "");
     write("");
 
     write("Branding:", 11, true);
@@ -201,9 +279,9 @@ Attached is the completed Website Client Packet PDF.
     write("");
 
     write("Requested Features:", 11, true);
-    write(`Contact Form: ${intakeData.contactForm}`);
-    write(`Social Links: ${intakeData.socialLinks}`);
-    write(`Basic SEO: ${intakeData.basicSeo}`);
+    checkLine("Contact Form", intakeData.contactForm);
+    checkLine("Social Media Links", intakeData.socialLinks);
+    checkLine("Basic SEO Setup", intakeData.basicSeo);
     write("");
 
     write("Additional Notes:", 11, true);
@@ -211,20 +289,22 @@ Attached is the completed Website Client Packet PDF.
     write("");
 
     sectionTitle("Materials Acknowledgement");
-    write(`Client Name: ${materialsData.clientName}`);
-    write(`Business Name: ${materialsData.businessName}`);
-    write(`Typed Signature: ${materialsData.typedSignature}`);
+    write(`Client Name: ${materialsData.clientName || ""}`);
+    write(`Business Name: ${materialsData.businessName || ""}`);
+    write(`Typed Signature: ${materialsData.typedSignature || ""}`);
     write(`Signed Date/Time: ${materialsData.signedAt || "Not captured"}`);
     write("");
 
-    write(`Materials Provided: ${materialsData.materialsProvided}`);
-    write(`Ownership Rights: ${materialsData.ownershipRights}`);
-    write(`Delays Acknowledged: ${materialsData.delayAcknowledged}`);
-    write(`Preview Acknowledged: ${materialsData.previewAcknowledged}`);
-    write(`Revision Acknowledged: ${materialsData.revisionAcknowledged}`);
-    write(`Approval Acknowledged: ${materialsData.approvalAcknowledged}`);
-    write(`Delivery Acknowledged: ${materialsData.deliveryAcknowledged}`);
-    write(`Records Acknowledged: ${materialsData.recordsAcknowledged}`);
+    checkLine("Materials Provided", materialsData.materialsProvided);
+    checkLine("Ownership Rights Confirmed", materialsData.ownershipRights);
+    checkLine("Delays Acknowledged", materialsData.delayAcknowledged);
+    checkLine("Preview Acknowledged", materialsData.previewAcknowledged);
+    checkLine("Revision Policy Accepted", materialsData.revisionAcknowledged);
+    checkLine("Final Approval Accepted", materialsData.approvalAcknowledged);
+    checkLine("Delivery Terms Accepted", materialsData.deliveryAcknowledged);
+    checkLine("Records Retained", materialsData.recordsAcknowledged);
+
+    addFooter();
 
     const pdfBytes = await pdfDoc.save();
     const pdfBase64 = Buffer.from(pdfBytes).toString("base64");
