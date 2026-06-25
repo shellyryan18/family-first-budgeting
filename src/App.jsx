@@ -4,7 +4,7 @@ import {
   PayPalButtons,
 } from "@paypal/react-paypal-js";
 
-export default function App()
+export default function App() {
  const paypalClientId = "AVsV_Pn6gpqWfhhSngg_WtAWlvihc9x7adDKtaNmYpLV1e-zvqreUo2Ssha7AZM6uDWUapsnLP6_eqyp";
   const [contactData, setContactData] = useState({
     name: "",
@@ -163,6 +163,8 @@ setAgreementData(updatedAgreement);
 setAgreementStatus(
   "Agreement accepted successfully. Please continue to Intake Form."
 );
+
+  }
 
   function downloadAgreementText() {
     const blob = new Blob([FULL_WEBSITE_AGREEMENT], { type: "text/plain;charset=utf-8" });
