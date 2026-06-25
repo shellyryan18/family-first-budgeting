@@ -212,8 +212,8 @@ Attached is the completed Website Client Packet PDF.
     }
 
     function checkLine(label, value) {
-      write(`${value ? "✓" : "○"} ${label}`);
-    }
+  write(`${value ? "[YES]" : "[NO]"} ${label}`);
+}
 
     addHeader();
 
