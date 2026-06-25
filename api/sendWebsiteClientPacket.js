@@ -79,14 +79,21 @@ Delivery Acknowledged: ${materialsData.deliveryAcknowledged}
 Records Acknowledged: ${materialsData.recordsAcknowledged}
 `;
 
-    await resend("/api/sendWebsiteClientPacket", {
-      from: "Family First Budgeting <onboarding@resend.dev>",
-      to: "MSullivan.FamilyFirstBudgeting@outlook.com",
-      subject: `New Website Client - ${intakeData.businessName || intakeData.clientName}`,
-      text: emailBody,
-    });
+    const { data, error } = await resend.emails.send({
+  from: process.env.FROM_EMAIL,
+  to: process.env.TO_EMAIL,
+  subject: `New Website Client - ${
+    intakeData.businessName || intakeData.clientName || "New Client"
+  }`,
+  text: emailBody,
+});
 
-    return res.status(200).json({ success: true });
+if (error) {
+  console.error("Resend error:", error);
+  return res.status(500).json({ error });
+}
+
+return res.status(200).json({ success: true, data });
   } catch (error) {
     console.error("Website client packet error:", error);
     return res.status(500).json({ error: "Failed to send email" });
