@@ -602,13 +602,18 @@ Complete your secure PayPal payment below to reserve your project slot.
     label: "paypal",
   }}
 
-  {/* TEST BUTTON */}
-<button
+   <button
+
   type="button"
+
   onClick={sendWebsiteClientPacket}
+
   style={button}
+
 >
+
   Test Client Packet Email
+
 </button>
 
   createOrder={(data, actions) => {
