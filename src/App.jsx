@@ -164,8 +164,7 @@ setAgreementStatus(
   "Agreement accepted successfully. Please continue to Intake Form."
 );
 
-  }
- 
+  } 
 
   function updateIntake(field, value) {
     setIntakeData({ ...intakeData, [field]: value });
@@ -629,14 +628,6 @@ Complete your secure PayPal payment below to reserve your project slot.
 
 )}
 
-<button
-  type="button"
-  onClick={sendWebsiteClientPacket}
-  style={button}
->
-  Test Client Packet Email
-</button>
-
   {depositPaid && (
     <p style={statusText}>
       Deposit received. A confirmation email will be sent once payment is verified.
@@ -646,6 +637,15 @@ Complete your secure PayPal payment below to reserve your project slot.
     <a href="#/materials" style={footerLink}>
     ← Back to Materials Acknowledgement
   </a>
+
+           <button
+  type="button"
+  onClick={sendWebsiteClientPacket}
+  style={button}
+>
+  Test Client Packet Email
+</button>
+
 </div>
 
         </div>
@@ -1785,7 +1785,7 @@ Select a service below to learn more about how Family First Budgeting can help y
               }
               style={inputStyle}
             />
-           
+   
             <button type="submit" style={button}>
               Send Message             
             </button>
@@ -1874,7 +1874,8 @@ const headline = {
 const description = {
   color: "#5f6b75",
   fontSize: "14px",
-  lineHeight: "1.55",  
+  lineHeight: "1.55",
+  maxWidth: "540px",
   margin: "0 auto 18px auto",
   maxWidth: "620px",
 };
@@ -1894,7 +1895,7 @@ const promo = {
   fontWeight: "700",
   fontSize: "13px",
   marginBottom: "15px",
-  margintop:"10px",
+  marginTop:"10px",
   display: "inline-block",
   textAlign: "center",
   boxShadow: "0 2px 8px rgba(127,184,164,0.10)",

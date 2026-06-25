@@ -156,15 +156,15 @@ Attached is the completed Website Client Packet PDF.
         }
 
         while (current.length > maxChars) {
-          let breakPoint = current.lastIndexOf(" ", maxChars);
+  let breakPoint = current.lastIndexOf(" ", maxChars);
 
-          if (breakPoint <= 0) {
-            breakPoint = maxChars;
-          }
+  if (breakPoint <= 0) {
+    breakPoint = maxChars - 5;
+  }
 
-          lines.push(current.slice(0, breakPoint));
-          current = current.slice(breakPoint).trim();
-        }
+  lines.push(current.slice(0, breakPoint) + "-");
+  current = current.slice(breakPoint).trim();
+}
 
         if (current.length) {
           lines.push(current);
@@ -279,16 +279,20 @@ Address / Service Area: ${intakeData.address || ""}`,
 
     requireSpace(6);
     write("Social Links:", 11, true);
-    write(`Facebook: ${intakeData.facebook || ""}`);
-    write(`Instagram: ${intakeData.instagram || ""}`);
-    write(`TikTok: ${intakeData.tiktok || ""}`);
-    write(`LinkedIn: ${intakeData.linkedin || ""}`);
+    if (intakeData.facebook) write(`Facebook: ${intakeData.facebook}`);
+if (intakeData.instagram) write(`Instagram: ${intakeData.instagram}`);
+if (intakeData.tiktok) write(`TikTok: ${intakeData.tiktok}`);
+if (intakeData.linkedin) write(`LinkedIn: ${intakeData.linkedin}`);
     write("");
 
     requireSpace(6);
     write("Domain / Hosting:", 11, true);
     write(`Owns Domain: ${intakeData.ownsDomain || ""}`);
-    write(`Domain Name: ${intakeData.domainName || ""}`);
+    writeTextBlock(
+  "Domain Name:",
+  intakeData.domainName,
+  4
+);
     write(`Has Hosting: ${intakeData.hasHosting || ""}`);
     write(`Hosting Provider: ${intakeData.hostingProvider || ""}`);
     write("");
