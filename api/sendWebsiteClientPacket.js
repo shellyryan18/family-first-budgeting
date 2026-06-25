@@ -31,7 +31,6 @@ Attached is the completed Website Client Packet PDF.
 `;
 
     const pdfDoc = await PDFDocument.create();
-
     const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
     const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
@@ -58,9 +57,9 @@ Attached is the completed Website Client Packet PDF.
       });
 
       page.drawText(
-        "Family First Budgeting • Fighting the economy, one family at a time.",
+        "Family First Budgeting - Fighting the economy, one family at a time.",
         {
-          x: 115,
+          x: 120,
           y: 25,
           size: 8,
           font,
@@ -136,29 +135,47 @@ Attached is the completed Website Client Packet PDF.
       addHeader();
     }
 
-    function write(text, size = 11, bold = false) {
+    function requireSpace(linesNeeded = 6) {
+      const needed = linesNeeded * 18;
+      if (y < needed + 70) {
+        newPage();
+      }
+    }
+
+    function splitTextIntoLines(text, maxChars = 85) {
       const safeText = String(text || "");
-      const maxChars = 85;
+      const rawLines = safeText.split("\n");
+      const lines = [];
 
-      const lines = safeText
-        .split("\n")
-        .flatMap((line) => {
-          if (line.length <= maxChars) return [line];
+      for (const rawLine of rawLines) {
+        let current = rawLine.trim();
 
-          const chunks = [];
-          let current = line;
+        if (!current) {
+          lines.push("");
+          continue;
+        }
 
-          while (current.length > maxChars) {
-            let breakPoint = current.lastIndexOf(" ", maxChars);
-            if (breakPoint === -1) breakPoint = maxChars;
+        while (current.length > maxChars) {
+          let breakPoint = current.lastIndexOf(" ", maxChars);
 
-            chunks.push(current.slice(0, breakPoint));
-            current = current.slice(breakPoint).trim();
+          if (breakPoint <= 0) {
+            breakPoint = maxChars;
           }
 
-          if (current.length) chunks.push(current);
-          return chunks;
-        });
+          lines.push(current.slice(0, breakPoint));
+          current = current.slice(breakPoint).trim();
+        }
+
+        if (current.length) {
+          lines.push(current);
+        }
+      }
+
+      return lines;
+    }
+
+    function write(text, size = 11, bold = false) {
+      const lines = splitTextIntoLines(text, 85);
 
       for (const line of lines) {
         if (y < 70) {
@@ -180,9 +197,7 @@ Attached is the completed Website Client Packet PDF.
     }
 
     function sectionTitle(title) {
-      if (y < 90) {
-        newPage();
-      }
+      requireSpace(4);
 
       y -= 5;
 
@@ -207,13 +222,16 @@ Attached is the completed Website Client Packet PDF.
       y -= 32;
     }
 
-    function yesNo(value) {
-      return value ? "Yes" : "No";
+    function checkLine(label, value) {
+      write(`${value ? "[YES]" : "[NO]"} ${label}`);
     }
 
-    function checkLine(label, value) {
-  write(`${value ? "[YES]" : "[NO]"} ${label}`);
-}
+    function writeTextBlock(label, value, linesNeeded = 8) {
+      requireSpace(linesNeeded);
+      write(label, 11, true);
+      write(value || "");
+      write("");
+    }
 
     addHeader();
 
@@ -239,18 +257,11 @@ Attached is the completed Website Client Packet PDF.
     write(`Phone: ${intakeData.phone || ""}`);
     write("");
 
-    write("Business Description:", 11, true);
-    write(intakeData.businessDescription || "");
-    write("");
+    writeTextBlock("Business Description:", intakeData.businessDescription, 8);
+    writeTextBlock("Services:", intakeData.services, 8);
+    writeTextBlock("Business Hours:", intakeData.businessHours, 5);
 
-    write("Services:", 11, true);
-    write(intakeData.services || "");
-    write("");
-
-    write("Business Hours:", 11, true);
-    write(intakeData.businessHours || "");
-    write("");
-
+    requireSpace(6);
     write("Branding:", 11, true);
     write(`Primary Color: ${intakeData.primaryColor || ""}`);
     write(`Secondary Color: ${intakeData.secondaryColor || ""}`);
@@ -258,12 +269,15 @@ Attached is the completed Website Client Packet PDF.
     write(`Image Plan: ${intakeData.imagePlan || ""}`);
     write("");
 
-    write("Website Contact Information:", 11, true);
-    write(`Display Email: ${intakeData.contactEmail || ""}`);
-    write(`Display Phone: ${intakeData.contactPhone || ""}`);
-    write(`Address / Service Area: ${intakeData.address || ""}`);
-    write("");
+    writeTextBlock(
+      "Website Contact Information:",
+      `Display Email: ${intakeData.contactEmail || ""}
+Display Phone: ${intakeData.contactPhone || ""}
+Address / Service Area: ${intakeData.address || ""}`,
+      8
+    );
 
+    requireSpace(6);
     write("Social Links:", 11, true);
     write(`Facebook: ${intakeData.facebook || ""}`);
     write(`Instagram: ${intakeData.instagram || ""}`);
@@ -271,6 +285,7 @@ Attached is the completed Website Client Packet PDF.
     write(`LinkedIn: ${intakeData.linkedin || ""}`);
     write("");
 
+    requireSpace(6);
     write("Domain / Hosting:", 11, true);
     write(`Owns Domain: ${intakeData.ownsDomain || ""}`);
     write(`Domain Name: ${intakeData.domainName || ""}`);
@@ -278,15 +293,14 @@ Attached is the completed Website Client Packet PDF.
     write(`Hosting Provider: ${intakeData.hostingProvider || ""}`);
     write("");
 
+    requireSpace(5);
     write("Requested Features:", 11, true);
     checkLine("Contact Form", intakeData.contactForm);
     checkLine("Social Media Links", intakeData.socialLinks);
     checkLine("Basic SEO Setup", intakeData.basicSeo);
     write("");
 
-    write("Additional Notes:", 11, true);
-    write(intakeData.notes || "");
-    write("");
+    writeTextBlock("Additional Notes:", intakeData.notes, 8);
 
     sectionTitle("Materials Acknowledgement");
     write(`Client Name: ${materialsData.clientName || ""}`);
