@@ -79,7 +79,7 @@ Delivery Acknowledged: ${materialsData.deliveryAcknowledged}
 Records Acknowledged: ${materialsData.recordsAcknowledged}
 `;
 
-    await fetch("/api/sendWebsiteClientPacket", {
+    await resend("/api/sendWebsiteClientPacket", {
       from: "Family First Budgeting <onboarding@resend.dev>",
       to: "MSullivan.FamilyFirstBudgeting@outlook.com",
       subject: `New Website Client - ${intakeData.businessName || intakeData.clientName}`,
