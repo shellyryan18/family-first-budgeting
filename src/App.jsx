@@ -23,6 +23,7 @@ export default function App() {
     retainedCopy: false,
     agreementViewed: false,
     typedSignature: "",
+    signedAt: "",
   });
   const [agreementStatus, setAgreementStatus] = useState("");
   const [intakeData, setIntakeData] = useState({
@@ -67,6 +68,7 @@ export default function App() {
   clientName: "",
   businessName: "",
   typedSignature: "",
+  signedAt: "",
 });
   const [depositPaid, setDepositPaid] = useState(false);
 
@@ -146,11 +148,21 @@ const [materialsStatus, setMaterialsStatus] = useState("");
       return;
     }
     
-    setAgreementStatus(
+const signedAt = new Date().toLocaleString("en-US", {
+  dateStyle: "full",
+  timeStyle: "short",
+});
+
+const updatedAgreement = {
+  ...agreementData,
+  signedAt,
+};
+
+setAgreementData(updatedAgreement);
+
+setAgreementStatus(
   "Agreement accepted successfully. Please continue to Intake Form."
 );
-  }
-
 
   function downloadAgreementText() {
     const blob = new Blob([FULL_WEBSITE_AGREEMENT], { type: "text/plain;charset=utf-8" });
@@ -203,6 +215,8 @@ const [materialsStatus, setMaterialsStatus] = useState("");
     !materialsData.deliveryAcknowledged ||
     !materialsData.recordsAcknowledged
   ) {
+
+    
     setMaterialsStatus("Please complete all acknowledgement boxes before continuing.");
     return;
   }
@@ -216,7 +230,18 @@ const [materialsStatus, setMaterialsStatus] = useState("");
     return;
   }
 
- setMaterialsStatus("success");
+const signedAt = new Date().toLocaleString("en-US", {
+  dateStyle: "full",
+  timeStyle: "short",
+});
+
+setMaterialsData({
+  ...materialsData,
+  signedAt,
+});
+
+setMaterialsStatus("success");
+
 }
 
 if (currentPage === "#/materials") {
@@ -461,12 +486,6 @@ if (currentPage === "#/materials") {
   </a>
 )}
 
-{materialsStatus.includes("successfully") && materialsPrinted && (
-  <a href="#/website-deposit" style={button}>
-    Continue to Deposit & Payment
-  </a>
-)}
-
 <a href="#/website-intake" style={footerLink}>
   ← Back to Intake Form
 </a>
@@ -606,12 +625,14 @@ Complete your secure PayPal payment below to reserve your project slot.
   }}
 
   onApprove={(data, actions) => {
-  return actions.order.capture().then(() => {
+  return actions.order.capture().then(async () => {
+
     setDepositPaid(true);
-    sendWebsiteClientPacket();
+
+    await sendWebsiteClientPacket();
+
   });
 }}
-
 />
 
 </div>
@@ -1767,19 +1788,17 @@ Select a service below to learn more about how Family First Budgeting can help y
               style={inputStyle}
             />
 
+            <button
+  type="button"
+  onClick={sendWebsiteClientPacket}
+  style={button}
+>
+  Test Client Packet Email
+</button>
+
             <button type="submit" style={button}>
               Send Message             
             </button>
-
-<button
-type="button"
-style={button}
-onClick={sendWebsiteClientPacket}
->
-
-Test Client Packet Email
-
-</button>
 
             {contactStatus && <p style={statusText}>{contactStatus}</p>}
           </form>
