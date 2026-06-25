@@ -5,12 +5,12 @@ export default function PrivacyPolicy() {
         <div style={header}>
           <h1 style={title}>Privacy Policy</h1>
           <p style={effective}>
-            <strong>Effective Date:</strong> May 14, 2026
+            <strong>Last Updated:</strong> June 25, 2026
           </p>
           <p style={intro}>
-            Safe To Spend, created by Family First Budgeting, respects your
-            privacy and is committed to protecting your information.
-          </p>
+  Family First Budgeting, including Safe To Spend, budgeting services, and website design services,
+  respects your privacy and is committed to protecting your information.
+</p>
         </div>
 
         <div style={grid}>
@@ -36,6 +36,9 @@ export default function PrivacyPolicy() {
               <li>Save and sync budgeting information</li>
               <li>Improve app performance and user experience</li>
               <li>Maintain account security and authentication</li>
+              <li>Provide budgeting services and website design services</li>
+<li>Communicate with clients about projects, forms, payments, approvals, and delivery</li>
+<li>Create, revise, preview, and deliver requested website design work</li>
             </ul>
           </Section>
 
@@ -52,10 +55,35 @@ export default function PrivacyPolicy() {
             </ul>
           </Section>
 
+          <Section title="Website Design Services Information">
+  <p>
+    Family First Budgeting may collect information voluntarily submitted by clients
+    for website design services, including:
+  </p>
+
+  <ul style={listStyle}>
+    <li>Client name and business name</li>
+    <li>Email address and phone number</li>
+    <li>Business description, services, hours, and contact information</li>
+    <li>Branding preferences, colors, logos, images, and social media links</li>
+    <li>Domain, hosting, Vercel, or website-related information provided by the client</li>
+    <li>Agreement acknowledgements, intake responses, approval forms, and delivery confirmations</li>
+  </ul>
+
+  <p>
+    This information is used only to communicate with the client, prepare website materials,
+    create the requested website, manage the project process, and provide agreed services.
+  </p>
+</Section>
+
           <Section title="Data Storage">
             <p>
               Safe To Spend uses secure third-party services including Google
               Firebase for authentication and cloud data storage.
+
+              Website design project materials, intake submissions, acknowledgements,
+              approvals, and communications may also be stored through trusted service
+              providers used to operate Family First Budgeting.
             </p>
           </Section>
 
@@ -68,8 +96,8 @@ export default function PrivacyPolicy() {
 
           <Section title="Payment Processing">
             <p>
-              Payments may be processed through trusted third-party providers
-              including PayPal.
+              Payments for budgeting services and website design services may be
+              processed through trusted third-party providers including PayPal.
             </p>
             <p>
               Family First Budgeting does not directly store debit card, credit
@@ -112,6 +140,10 @@ export default function PrivacyPolicy() {
               <li>Google Firebase Authentication</li>
               <li>Google Firebase Firestore</li>
               <li>Google Play Services</li>
+              <li>Vercel</li>
+<li>PayPal</li>
+<li>Resend or email notification services</li>
+<li>Domain registrars or hosting providers, if applicable</li>
             </ul>
           </Section>
 
@@ -142,6 +174,27 @@ export default function PrivacyPolicy() {
           </p>
         </div>
 
+<div style={bottomSection}>
+  <h2 style={bottomTitle}>Website Design Services Disclaimer</h2>
+  <p>
+    <p>
+
+Family First Budgeting may use information provided by website design
+clients to create, preview, revise, approve, and deliver requested
+website projects.
+
+Clients are responsible for ensuring that all logos, images, written
+content, business information, social media links, domain information,
+and third-party account details submitted are accurate, authorized for
+use, and do not infringe upon the rights of others.
+
+Family First Budgeting is not responsible for verifying ownership of
+materials supplied by clients.
+
+</p>
+  </p>
+</div>
+
         <div style={bottomSection}>
           <h2 style={bottomTitle}>Changes to This Policy</h2>
           <p>
@@ -155,10 +208,10 @@ export default function PrivacyPolicy() {
           <h2 style={bottomTitle}>Contact Us</h2>
           <p>
             Family First Budgeting
+            <br />            
+            Email: MSullivan.FamilyFirstBudgeting@outlook.com
             <br />
             Website: https://familyfirstbudgeting.com
-            <br />
-            Email: MSullivan.FamilyFirstBudgeting@outlook.com
           </p>
         </div>
 
