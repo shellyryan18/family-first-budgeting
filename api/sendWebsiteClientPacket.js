@@ -166,7 +166,7 @@ write(`Records Acknowledged: ${materialsData.recordsAcknowledged}`);
 const pdfBytes = await pdfDoc.save();
 const pdfBase64 = Buffer.from(pdfBytes).toString("base64");
 
-    const { data, error } = await resend.emails.send({
+const { data, error } = await resend.emails.send({
   from: process.env.FROM_EMAIL,
   to: process.env.TO_EMAIL,
   subject: `New Website Client - ${
@@ -174,11 +174,11 @@ const pdfBase64 = Buffer.from(pdfBytes).toString("base64");
   }`,
   text: emailBody,
   attachments: [
-  {
-    filename: "Website-Client-Packet.pdf",
-    content: pdfBase64,
-  },
-],
+     {
+      filename: "Website-Client-Packet.pdf",
+      content: pdfBase64,
+    },
+  ],
 });
 
 if (error) {
