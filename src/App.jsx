@@ -637,15 +637,7 @@ Complete your secure PayPal payment below to reserve your project slot.
     <a href="#/materials" style={footerLink}>
     ← Back to Materials Acknowledgement
   </a>
-
-           <button
-  type="button"
-  onClick={sendWebsiteClientPacket}
-  style={button}
->
-  Test Client Packet Email
-</button>
-
+  
 </div>
 
         </div>
