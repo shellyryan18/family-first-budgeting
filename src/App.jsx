@@ -5,6 +5,7 @@ import {
 } from "@paypal/react-paypal-js";
 
 export default function App() {
+ const isMobile = window.innerWidth <= 768;
  const paypalClientId = "AVsV_Pn6gpqWfhhSngg_WtAWlvihc9x7adDKtaNmYpLV1e-zvqreUo2Ssha7AZM6uDWUapsnLP6_eqyp";
   const [contactData, setContactData] = useState({
     name: "",
@@ -1850,7 +1851,7 @@ const container = {
   padding: "24px",
   borderRadius: "18px",
   maxWidth: "760px",
-  width: "100%",
+  width: "96%",
   textAlign: "center",
   boxShadow: "0 10px 30px rgba(31,60,70,0.08)",
   border: "1px solid #d6e6ef",
@@ -2570,10 +2571,12 @@ const serviceMenuBox = {
   background: "#ffffff",
   border: "1px solid #d6e6ef",
   borderRadius: "20px",
-  padding: "30px",
+  padding: "18px",
   boxShadow: "0 4px 20px rgba(0,0,0,.03)",
   marginTop: "22px",
   marginBottom: "30px",
+  width: "100%",
+  boxSizing: "border-box",
 };
 
 const serviceMenuTitle = {
@@ -2594,11 +2597,13 @@ const serviceCard = {
   background: "#ffffff",
   border: "1px solid #d6e6ef",
   borderRadius: "18px",
-  padding: "24px",
+  padding: "20px",
   boxShadow: "0 4px 15px rgba(0,0,0,.04)",
   marginBottom: "10px",
   overflow: "hidden",
   textAlign: "center",
+  width: "100%",
+  boxSizing: "border-box",
 };
 
 const serviceTitle = {
@@ -2703,6 +2708,8 @@ const sectionBox = {
   borderRadius:"14px",
   padding:"18px",
   marginBottom:"15px",
+  width: "100%",
+  boxSizing: "border-box",
 };
 
 const sectionTitle = {
@@ -2765,6 +2772,8 @@ const maintenanceBox = {
   color: "#8a6a00",
   fontSize: "14px",
   lineHeight: "1.6",
+  width: "100%",
+  boxSizing: "border-box",
 };
 
 const maintenanceText = {
