@@ -1665,8 +1665,7 @@ Select a service below to learn more about how Family First Budgeting can help y
 </p>
 
   <div style={serviceCards}>
-  <div style={serviceCard}>
-  <div style={serviceCard}>
+    <div style={serviceCard}>
   <h3 style={serviceTitle}>💰 Budgeting Services</h3>
 
   <p style={serviceText}>
